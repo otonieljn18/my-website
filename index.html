@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mundo de Fe Santo Domingo — Más que una Iglesia, somos Familia</title>
+  <meta name="description" content="Iglesia cristiana evangélica en Santo Domingo, República Dominicana. Pastores Otoniel Rincón y Jhanna Báez. Domingos 10AM." />
+  <meta name="theme-color" content="#0f1b35" />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_DO" />
+  <meta property="og:title" content="Mundo de Fe Santo Domingo — Más que una Iglesia, somos Familia" />
+  <meta property="og:description" content="Iglesia cristiana evangélica en Santo Domingo, RD. Pastores Otoniel Rincón y Jhanna Báez. Únete a nosotros los Domingos a las 10AM." />
+  <meta property="og:image" content="images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mundo de Fe Santo Domingo" />
+  <meta name="twitter:description" content="Iglesia cristiana evangélica en Santo Domingo, RD. Domingos 10AM." />
+  <meta name="twitter:image" content="images/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announce-bar" id="announceBar">
+    <div class="announce-inner">
+      <span class="announce-emoji" id="announceEmoji"></span>
+      <span id="announceText"></span>
+      <a href="#" id="announceCta" class="announce-cta"></a>
+    </div>
+    <button class="announce-close" id="announceClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#inicio" class="nav-logo">
+        <img src="images/logo.png" alt="Mundo de Fe Santo Domingo" class="nav-logo-img"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <span class="nav-logo-text" style="display:none">MUNDO <em>de</em> FE</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#nuevo">Soy Nuevo</a></li>
+        <li><a href="#pasos">Próximos Pasos</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#predicas">Ver</a></li>
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#dar">Dar</a></li>
+        <li><a href="#contacto" class="nav-cta"><i class="fa-solid fa-calendar-check"></i> Planifica tu visita</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg">
+      <div class="hero-layer-photo"></div>
+      <div class="hero-layer-1"></div>
+      <div class="hero-layer-2"></div>
+      <div class="hero-grain"></div>
+    </div>
+    <div class="hero-content">
+      <img src="images/logo.png" alt="Mundo de Fe Santo Domingo" class="hero-logo"
+        onerror="this.style.display='none'" />
+      <div class="hero-series-tag" id="heroSeriesTag"></div>
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span id="heroEyebrow"></span>
+        <span class="eyebrow-line"></span>
+      </div>
+      <h1 class="hero-title">
+        <span class="hero-title-sm">MUNDO</span>
+        <span class="hero-title-de">de</span>
+        <span class="hero-title-fe">FE</span>
+      </h1>
+      <p class="hero-sub" id="churchTagline"></p>
+      <div class="hero-verse-wrap">
+        <div class="hero-verse-line"></div>
+        <p class="hero-verse" id="heroVerse"></p>
+        <div class="hero-verse-line"></div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn btn-gold-fill" id="heroCta1"></a>
+        <a href="#predicas" class="btn btn-ghost" id="heroCta2">
+          <span class="play-ring"><i class="fa-solid fa-play"></i></span>
+          <span></span>
+        </a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <div class="scroll-track"><div class="scroll-thumb"></div></div>
+      <span>Descubre más</span>
+    </div>
+    <div class="hero-social">
+      <a id="heroFb" href="#" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a id="heroIg" href="#" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a id="heroYt" href="#" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+    </div>
+  </section>
+
+  <!-- SERVICE TIMES STRIP -->
+  <div class="strip" id="servicesStrip">
+    <!-- Populated from content.js -->
+  </div>
+
+  <!-- SOY NUEVO / NEW HERE -->
+  <section class="new-here" id="nuevo">
+    <div class="container">
+      <div class="new-here-header">
+        <p class="label label--gold">Primera visita</p>
+        <h2 class="heading-display" id="newHereHeadline"></h2>
+        <p class="body-large" id="newHereSub"></p>
+      </div>
+      <div class="new-here-grid" id="newHereGrid">
+        <!-- Populated from content.js -->
+      </div>
+      <div class="new-here-cta">
+        <a href="#contacto" id="newHereCtaBtn" class="btn btn-dark-fill"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="nosotros">
+    <div class="about-split">
+      <div class="about-visual">
+        <div class="about-img-main">
+          <div class="about-img-inner"></div>
+          <div class="about-badge">
+            <span class="badge-num" id="statNations">25</span><span class="badge-plus">+</span>
+            <span class="badge-label">Naciones</span>
+          </div>
+        </div>
+        <div class="about-img-secondary"></div>
+        <div class="about-quote-card">
+          <i class="fa-solid fa-quote-left"></i>
+          <p id="churchTagline2"></p>
+        </div>
+      </div>
+      <div class="about-copy">
+        <p class="label">Quiénes somos</p>
+        <h2 class="heading-display">Una iglesia que<br/><em>transforma vidas</em></h2>
+        <p class="body-large" id="aboutLead"></p>
+        <p class="body-text" id="aboutBody"></p>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-n" data-target="25" id="statN1">0</span><span class="stat-plus">+</span>
+            <p>Naciones alcanzadas</p>
+          </div>
+          <div class="stat">
+            <span class="stat-n" data-target="70" id="statN2">0</span><span class="stat-plus">+</span>
+            <p>Países con presencia</p>
+          </div>
+          <div class="stat">
+            <span class="stat-n" data-target="100" id="statN3">0</span><span class="stat-plus">%</span>
+            <p>Amor genuino</p>
+          </div>
+        </div>
+        <a href="#pasos" class="btn btn-dark-fill">Conoce tus próximos pasos <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission">
+    <div class="mission-bg"></div>
+    <div class="container">
+      <p class="label label--gold">Nuestra misión</p>
+      <blockquote class="mission-quote">
+        Conoce a Dios. Encuentra libertad.<br/>
+        <em>Crece en comunidad. Haz la diferencia.</em>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- PRÓXIMOS PASOS -->
+  <section class="next-steps" id="pasos">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Próximos Pasos</p>
+        <h2 class="heading-display" id="stepsHeadline"></h2>
+        <p class="body-text" id="stepsSub"></p>
+      </div>
+      <div class="steps-grid" id="stepsGrid">
+        <!-- Populated from content.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- PASTORS -->
+  <section class="pastors" id="pastores">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Liderazgo</p>
+        <h2 class="heading-display">Nuestros<br/><em>Pastores</em></h2>
+      </div>
+      <div class="pastors-grid" id="pastors-grid">
+        <!-- Populated from content.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="servicios">
+    <div class="services-bg"></div>
+    <div class="container">
+      <div class="section-header section-header--light">
+        <p class="label label--gold">Horarios</p>
+        <h2 class="heading-display heading-display--light">Ven y<br/><em>sé parte</em></h2>
+        <p class="body-text body-text--light">Te esperamos con los brazos abiertos. Ven tal como eres.</p>
+      </div>
+      <div class="services-layout" id="servicesLayout">
+        <!-- Populated from content.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SERMONS / WATCH -->
+  <section class="sermons" id="predicas">
+    <div class="sermons-bg"></div>
+    <div class="container">
+      <div class="section-header section-header--light">
+        <p class="label label--gold">Watch</p>
+        <h2 class="heading-display heading-display--light">Prédicas<br/><em>recientes</em></h2>
+        <div class="series-badge-wrap">
+          <span class="series-badge"><i class="fa-solid fa-film"></i> Serie: <em id="seriesName"></em></span>
+        </div>
+      </div>
+      <div class="sermons-grid" id="sermonsGrid">
+        <!-- Populated from content.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="events" id="eventos">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Agenda</p>
+        <h2 class="heading-display">Próximos<br/><em>eventos</em></h2>
+      </div>
+      <div class="events-grid" id="eventsGrid">
+        <!-- Populated from content.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVE -->
+  <section class="serve">
+    <div class="serve-bg"></div>
+    <div class="container">
+      <div class="serve-layout">
+        <div class="serve-copy">
+          <p class="label label--gold">Equipo</p>
+          <h2 class="heading-display heading-display--light" id="serveHeadline"></h2>
+          <p class="body-text body-text--light" id="serveSub"></p>
+          <a href="#contacto" class="btn btn-gold-fill" id="serveCtaBtn"></a>
+        </div>
+        <div class="serve-areas" id="serveAreas">
+          <!-- Populated from content.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRIPTURE -->
+  <div class="scripture-break">
+    <div class="scripture-bg"></div>
+    <div class="container">
+      <i class="fa-solid fa-cross scripture-cross"></i>
+      <blockquote id="scriptureText"></blockquote>
+      <cite id="scriptureRef"></cite>
+    </div>
+  </div>
+
+  <!-- GIVE -->
+  <section class="give" id="dar">
+    <div class="container">
+      <div class="give-layout">
+        <div class="give-copy">
+          <p class="label">Generosidad</p>
+          <h2 class="heading-display" id="giveHeadline"></h2>
+          <p class="body-text" id="giveSub"></p>
+          <p class="give-verse" id="giveVerse"></p>
+          <a href="#" class="btn btn-dark-fill" id="giveCtaBtn"></a>
+        </div>
+        <div class="give-methods" id="giveMethods">
+          <!-- Populated from content.js -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINISTRIES -->
+  <section class="ministries" id="ministerios">
+    <div class="container">
+      <div class="section-header">
+        <p class="label">Ministerios</p>
+        <h2 class="heading-display">Un lugar<br/><em>para todos</em></h2>
+      </div>
+      <div class="ministries-grid" id="ministriesGrid">
+        <!-- Populated from content.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contacto">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-left">
+          <p class="label">Contáctanos</p>
+          <h2 class="heading-display">¿Listo para<br/><em>dar el paso?</em></h2>
+          <p class="body-text">Ya sea tu primera vez o llevas años en la fe — hay un lugar para ti aquí. Te esperamos este domingo.</p>
+          <div class="contact-details" id="contactDetails">
+            <!-- Populated from content.js -->
+          </div>
+          <div class="contact-social-row" id="contactSocial">
+            <!-- Populated from content.js -->
+          </div>
+        </div>
+        <div class="contact-right">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-header">
+              <h3>Planifica tu visita</h3>
+              <p>Cuéntanos un poco sobre ti y te ayudaremos a dar el siguiente paso.</p>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="fname">Nombre</label>
+                <input type="text" id="fname" name="fname" placeholder="Tu nombre" required />
+              </div>
+              <div class="form-field">
+                <label for="lname">Apellido</label>
+                <input type="text" id="lname" name="lname" placeholder="Tu apellido" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="email">Correo electrónico</label>
+              <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+            </div>
+            <div class="form-field">
+              <label for="phone">Teléfono / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 809 000 0000" />
+            </div>
+            <div class="form-field">
+              <label for="motivo">¿Cómo podemos ayudarte?</label>
+              <select id="motivo" name="motivo">
+                <option value="">Selecciona una opción</option>
+                <option>Es mi primera visita</option>
+                <option>Quiero conocer más sobre la iglesia</option>
+                <option>Tengo una petición de oración</option>
+                <option>Quiero unirme a un ministerio</option>
+                <option>Información sobre bautismo</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="mensaje">Mensaje (opcional)</label>
+              <textarea id="mensaje" name="mensaje" rows="3" placeholder="¿Cómo podemos orar por ti?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold-fill btn-submit">
+              Enviar <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <img src="images/logo.png" alt="Mundo de Fe Santo Domingo" class="footer-logo-img"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+              <span class="footer-logo-text" style="display:none">MUNDO <em>de</em> FE<br/><small>Santo Domingo</small></span>
+            </div>
+            <p class="footer-tagline" id="footerTagline"></p>
+            <p class="footer-pastors" id="footerPastors"></p>
+            <p class="footer-network">Parte de <strong>Mundo de Fe Internacional</strong></p>
+          </div>
+          <div class="footer-col">
+            <h5>Navegación</h5>
+            <ul>
+              <li><a href="#nuevo">Soy Nuevo</a></li>
+              <li><a href="#pasos">Próximos Pasos</a></li>
+              <li><a href="#servicios">Servicios</a></li>
+              <li><a href="#predicas">Prédicas</a></li>
+              <li><a href="#eventos">Eventos</a></li>
+              <li><a href="#ministerios">Ministerios</a></li>
+              <li><a href="#dar">Dar</a></li>
+              <li><a href="#contacto">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="footer-col" id="footerServices">
+            <h5>Servicios</h5>
+            <!-- Populated from content.js -->
+          </div>
+          <div class="footer-col">
+            <h5>Síguenos</h5>
+            <div class="footer-social" id="footerSocial">
+              <!-- Populated from content.js -->
+            </div>
+            <p class="footer-location"><i class="fa-solid fa-location-dot"></i> <span id="footerLocation"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 Mundo de Fe Santo Domingo. Todos los derechos reservados.</p>
+        <p id="footerPastors2"></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING ACTION BUTTONS -->
+  <div class="fab-stack">
+    <button class="fab fab-top" id="backToTop" aria-label="Volver arriba" title="Volver arriba">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
+    <a class="fab fab-whatsapp" id="whatsappFab" href="#" target="_blank" rel="noopener"
+      aria-label="Contáctanos por WhatsApp" title="WhatsApp" style="display:none">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <script src="content.js"></script>
+  <script>
+  // ══════════════════════════════════════════════
+  //  CONTENT INJECTOR — reads SITE from content.js
+  // ══════════════════════════════════════════════
+  (function() {
+    const S = window.SITE;
+    if (!S) { console.warn('content.js not loaded'); return; }
+
+    // ── Helpers ─────────────────────────────────
+    const $ = id => document.getElementById(id);
+    const set = (id, html) => { const el = $(id); if (el) el.innerHTML = html; };
+    const setText = (id, txt) => { const el = $(id); if (el && txt) el.textContent = txt; };
+    const setHref = (id, url) => { const el = $(id); if (el && url && url !== '#') el.href = url; };
+
+    // ── Announcement bar ────────────────────────
+    const bar = $('announceBar');
+    if (bar) {
+      if (S.announcement.show) {
+        setText('announceEmoji', S.announcement.emoji);
+        setText('announceText', S.announcement.text);
+        const cta = $('announceCta');
+        if (cta) { cta.textContent = S.announcement.cta_text; cta.href = S.announcement.cta_url; }
+        $('announceClose').addEventListener('click', () => {
+          bar.style.transition = 'opacity 0.3s ease, max-height 0.4s ease, padding 0.4s ease';
+          bar.style.opacity = '0';
+          bar.style.maxHeight = '0';
+          bar.style.padding = '0';
+          bar.style.overflow = 'hidden';
+          setTimeout(() => { bar.remove(); updateBarHeight(); }, 420);
+        });
+      } else {
+        bar.remove();
+      }
+    }
+
+    // ── Hero ─────────────────────────────────────
+    setText('heroEyebrow', S.hero.eyebrow);
+    setText('heroVerse', S.hero.verse);
+    setText('churchTagline', S.church.tagline);
+    setText('churchTagline2', S.church.tagline);
+
+    const seriesTagEl = $('heroSeriesTag');
+    if (seriesTagEl && S.hero.current_series) {
+      seriesTagEl.textContent = S.hero.current_series;
+      seriesTagEl.style.display = 'inline-block';
+    }
+
+    const cta1 = $('heroCta1');
+    if (cta1) { cta1.textContent = S.hero.cta_visit; cta1.href = '#contacto'; }
+    const cta2 = $('heroCta2');
+    if (cta2) { cta2.querySelector('span:last-child').textContent = S.hero.cta_watch; }
+
+    setHref('heroFb', S.contact.facebook_url);
+    setHref('heroIg', S.contact.instagram_url);
+    setHref('heroYt', S.contact.youtube_url);
+
+    // ── Strip ────────────────────────────────────
+    const strip = $('servicesStrip');
+    if (strip) {
+      strip.innerHTML = `<div class="strip-inner">${S.services.map((sv, i) => `
+        ${i > 0 ? '<div class="strip-sep"></div>' : ''}
+        <div class="strip-item${sv.featured ? ' strip-item--cta' : ''}">
+          <i class="fa-regular fa-calendar"></i>
+          <div><strong>${sv.day}</strong><span>${sv.time} — ${sv.name}</span></div>
+        </div>`).join('')}
+        <div class="strip-sep"></div>
+        <div class="strip-item strip-item--social">
+          <i class="fa-brands fa-instagram"></i>
+          <div><strong>Síguenos</strong><span>${S.contact.instagram_handle}</span></div>
+        </div>
+      </div>`;
+    }
+
+    // ── New Here ─────────────────────────────────
+    setText('newHereHeadline', S.new_here.headline);
+    setText('newHereSub', S.new_here.sub);
+    const nhGrid = $('newHereGrid');
+    if (nhGrid) {
+      nhGrid.innerHTML = S.new_here.cards.map(c => `
+        <div class="nh-card">
+          <div class="nh-icon"><i class="fa-solid ${c.icon}"></i></div>
+          <h3>${c.title}</h3>
+          <p>${c.body}</p>
+        </div>`).join('');
+    }
+    const nhCta = $('newHereCtaBtn');
+    if (nhCta) { nhCta.textContent = S.new_here.cta_text; nhCta.href = S.new_here.cta_url; }
+
+    // ── About ────────────────────────────────────
+    setText('aboutLead', S.about.lead);
+    setText('aboutBody', S.about.body);
+    const sn1 = $('statN1'), sn2 = $('statN2');
+    if (sn1) sn1.dataset.target = S.about.stat_nations;
+    if (sn2) sn2.dataset.target = S.about.stat_countries;
+    const bn = $('statNations');
+    if (bn) bn.textContent = '+' + S.about.stat_nations;
+
+    // ── Next Steps ───────────────────────────────
+    setText('stepsHeadline', S.next_steps.headline);
+    setText('stepsSub', S.next_steps.sub);
+    const stepsGrid = $('stepsGrid');
+    if (stepsGrid) {
+      stepsGrid.innerHTML = S.next_steps.steps.map(st => `
+        <div class="step-card">
+          <div class="step-num" style="color:${st.color}">${st.number}</div>
+          <div class="step-bar" style="background:${st.color}"></div>
+          <h3>${st.title}</h3>
+          <p>${st.body}</p>
+          <a href="${st.url}" class="step-cta" style="color:${st.color}">${st.cta} <i class="fa-solid fa-arrow-right"></i></a>
+        </div>`).join('');
+    }
+
+    // ── Pastors ──────────────────────────────────
+    const pastorGrid = $('pastors-grid');
+    if (pastorGrid) {
+      pastorGrid.innerHTML = S.pastors.map((p, i) => `
+        <div class="pastor-card ${i % 2 !== 0 ? 'pastor-card--alt' : ''}">
+          <div class="pastor-photo">
+            <img src="${p.photo}" alt="Foto de ${p.name}" class="pastor-img" loading="lazy"
+              onload="this.classList.add('loaded')"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <div class="pastor-initials-fallback">
+              ${p.name.split(' ').map(w=>w[0]).slice(0,2).join('')}
+            </div>
+            <div class="pastor-photo-name">
+              <span class="pastor-photo-role">${p.role}</span>
+              <span class="pastor-photo-label">${p.name}</span>
+            </div>
+          </div>
+          <div class="pastor-info">
+            <p class="pastor-role">${p.role}</p>
+            <h3>${p.name}</h3>
+            <div class="pastor-divider"></div>
+            <p>${p.bio}</p>
+          </div>
+        </div>`).join('');
+    }
+
+    // ── Services layout ──────────────────────────
+    const servLayout = $('servicesLayout');
+    if (servLayout && S.services.length) {
+      const main = S.services.find(s => s.featured) || S.services[0];
+      const rest = S.services.filter(s => s !== main);
+      servLayout.innerHTML = `
+        <div class="service-main">
+          <div class="service-main-icon"><i class="fa-solid fa-sun"></i></div>
+          <p class="service-day">${main.day}</p>
+          <h3>${main.name}</h3>
+          <p class="service-time-big">${main.time.split(' ')[0]} <span>${main.time.split(' ')[1] || ''}</span></p>
+          <p>${main.description}</p>
+          <a href="#contacto" class="btn btn-gold-fill">Cómo llegar <i class="fa-solid fa-location-dot"></i></a>
+        </div>
+        <div class="services-secondary">
+          ${rest.map(sv => `
+            <div class="service-card-sm">
+              <div class="service-sm-icon"><i class="fa-solid fa-book-open"></i></div>
+              <div>
+                <p class="service-day-sm">${sv.day} · ${sv.time}</p>
+                <h4>${sv.name}</h4>
+                <p>${sv.description}</p>
+              </div>
+            </div>`).join('')}
+          <div class="service-card-sm service-card-sm--live">
+            <div class="service-sm-icon service-sm-icon--red"><i class="fa-solid fa-signal-stream"></i></div>
+            <div>
+              <p class="service-day-sm">En línea</p>
+              <h4>Transmisión en vivo</h4>
+              <p>Síguenos en Facebook e Instagram cada domingo.</p>
+            </div>
+            <div class="live-badge">VIVO</div>
+          </div>
+        </div>`;
+    }
+
+    // ── Sermons ──────────────────────────────────
+    setText('seriesName', S.current_series.name);
+    const sermGrid = $('sermonsGrid');
+    if (sermGrid && S.sermons.length) {
+      const feat = S.sermons.find(s => s.featured) || S.sermons[0];
+      const rest = S.sermons.filter(s => s !== feat);
+      const colors = ['#0f1b35,#1a0a3a', '#1a1040,#0a1a30', '#301040,#0f1030', '#102040,#0a2010'];
+      sermGrid.innerHTML = `
+        <div class="sermon-card sermon-card--feature">
+          <div class="sermon-thumb" style="background:linear-gradient(135deg,${colors[0]})" onclick="window.open('${feat.url}','_blank')">
+            <div class="sermon-overlay">
+              <div class="sermon-play"><i class="fa-solid fa-play"></i></div>
+            </div>
+            <div class="sermon-tag">Más reciente</div>
+          </div>
+          <div class="sermon-info">
+            <p class="sermon-date"><i class="fa-regular fa-calendar"></i> ${feat.date}</p>
+            <h3>${feat.title}</h3>
+            <p class="sermon-speaker"><i class="fa-solid fa-microphone"></i> ${feat.speaker}</p>
+          </div>
+        </div>
+        <div class="sermons-list">
+          ${rest.map((s, i) => `
+            <div class="sermon-item" onclick="window.open('${s.url}','_blank')" style="cursor:pointer">
+              <div class="sermon-item-thumb" style="background:linear-gradient(135deg,${colors[i+1]||colors[0]})">
+                <div class="sermon-play-sm"><i class="fa-solid fa-play"></i></div>
+              </div>
+              <div class="sermon-item-info">
+                <p class="sermon-date"><i class="fa-regular fa-calendar"></i> ${s.date}</p>
+                <h4>${s.title}</h4>
+                <p class="sermon-speaker"><i class="fa-solid fa-microphone"></i> ${s.speaker}</p>
+              </div>
+            </div>`).join('')}
+          <a href="${S.contact.videos_url}" target="_blank" rel="noopener" class="btn btn-ghost-light">
+            Ver todas las prédicas <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>`;
+    }
+
+    // ── Events ───────────────────────────────────
+    const evGrid = $('eventsGrid');
+    if (evGrid && S.events.length) {
+      evGrid.innerHTML = S.events.map(ev => `
+        <div class="event-card">
+          <div class="event-date">
+            <span class="event-day">${ev.date_day}</span>
+            <span class="event-month">${ev.date_month}</span>
+          </div>
+          <div class="event-body">
+            <div class="event-tag" style="background:${ev.tag_color}20;color:${ev.tag_color}">${ev.tag}</div>
+            <h3>${ev.title}</h3>
+            <p class="event-time"><i class="fa-regular fa-clock"></i> ${ev.time}</p>
+            <p>${ev.description}</p>
+            <a href="${ev.url}" class="event-cta">Más información <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>`).join('');
+    }
+
+    // ── Serve ────────────────────────────────────
+    setText('serveHeadline', S.serve.headline);
+    setText('serveSub', S.serve.sub);
+    const serveBtn = $('serveCtaBtn');
+    if (serveBtn) { serveBtn.textContent = S.serve.cta_text; serveBtn.href = S.serve.cta_url; }
+    const serveAreas = $('serveAreas');
+    if (serveAreas) {
+      serveAreas.innerHTML = S.serve.areas.map(a => `
+        <div class="serve-area">
+          <i class="fa-solid ${a.icon}"></i>
+          <span>${a.label}</span>
+        </div>`).join('');
+    }
+
+    // ── Scripture ────────────────────────────────
+    set('scriptureText', `"${S.scripture.text}"`);
+    setText('scriptureRef', S.scripture.reference);
+
+    // ── Give ─────────────────────────────────────
+    setText('giveHeadline', S.give.headline);
+    setText('giveSub', S.give.sub);
+    setText('giveVerse', S.give.verse);
+    const giveBtn = $('giveCtaBtn');
+    if (giveBtn) { giveBtn.textContent = S.give.cta_text; giveBtn.href = S.give.cta_url; }
+    const giveMethods = $('giveMethods');
+    if (giveMethods) {
+      giveMethods.innerHTML = S.give.methods.map(m => `
+        <div class="give-method">
+          <div class="give-method-icon"><i class="fa-solid ${m.icon}"></i></div>
+          <div class="give-method-text"><h4>${m.label}</h4><p>${m.detail}</p></div>
+        </div>`).join('');
+    }
+
+    // ── Ministries ───────────────────────────────
+    const minGrid = $('ministriesGrid');
+    if (minGrid) {
+      minGrid.innerHTML = S.ministries.map(m => `
+        <div class="min-card" style="--accent:${m.color}">
+          <div class="min-card-top">
+            <div class="min-icon"><i class="fa-solid ${m.icon}"></i></div>
+            <div class="min-arrow"><i class="fa-solid fa-arrow-up-right"></i></div>
+          </div>
+          <h3>${m.name}</h3>
+          <p>${m.description}</p>
+        </div>`).join('');
+    }
+
+    // ── Contact details ──────────────────────────
+    const contactDetails = $('contactDetails');
+    if (contactDetails) {
+      const rows = [
+        { icon: 'fa-location-dot', label: 'Ubicación', val: S.contact.address },
+        { icon: 'fa-clock', label: 'Servicio principal', val: `${S.services.find(s=>s.featured)?.day || 'Domingo'} ${S.services.find(s=>s.featured)?.time || '10:00 AM'}` },
+        { icon: 'fa-brands fa-facebook', label: 'Facebook', val: S.contact.facebook_handle },
+        { icon: 'fa-brands fa-instagram', label: 'Instagram', val: S.contact.instagram_handle },
+      ];
+      if (S.contact.phone) rows.push({ icon: 'fa-phone', label: 'Teléfono', val: S.contact.phone });
+      if (S.contact.email) rows.push({ icon: 'fa-envelope', label: 'Email', val: S.contact.email });
+      contactDetails.innerHTML = rows.map(r => `
+        <div class="contact-row">
+          <div class="contact-icon-wrap"><i class="fa-solid ${r.icon}"></i></div>
+          <div><strong>${r.label}</strong><p>${r.val}</p></div>
+        </div>`).join('');
+    }
+    const contactSocial = $('contactSocial');
+    if (contactSocial) {
+      contactSocial.innerHTML = [
+        { url: S.contact.facebook_url, icon: 'fa-facebook-f', label: 'Facebook' },
+        { url: S.contact.instagram_url, icon: 'fa-instagram', label: 'Instagram' },
+        { url: S.contact.youtube_url, icon: 'fa-youtube', label: 'YouTube' },
+      ].map(s => `<a href="${s.url}" target="_blank" rel="noopener" class="social-btn" aria-label="${s.label}"><i class="fa-brands ${s.icon}"></i></a>`).join('');
+    }
+
+    // ── Footer ───────────────────────────────────
+    setText('footerTagline', S.church.tagline);
+    const pastorNames = `Pastores ${S.pastors.map(p=>p.name).join(' & ')}`;
+    setText('footerPastors', pastorNames);
+    setText('footerPastors2', pastorNames);
+    setText('footerLocation', S.contact.address);
+
+    const footerServices = $('footerServices');
+    if (footerServices) {
+      footerServices.innerHTML = `<h5>Servicios</h5><ul>${S.services.map(sv =>
+        `<li><i class="fa-regular fa-clock"></i> ${sv.day} — ${sv.time}</li>`).join('')}</ul>`;
+    }
+    const footerSocial = $('footerSocial');
+    if (footerSocial) {
+      footerSocial.innerHTML = [
+        { url: S.contact.facebook_url, icon: 'fa-facebook-f' },
+        { url: S.contact.instagram_url, icon: 'fa-instagram' },
+        { url: S.contact.youtube_url, icon: 'fa-youtube' },
+      ].map(s => `<a href="${s.url}" target="_blank" rel="noopener"><i class="fa-brands ${s.icon}"></i></a>`).join('');
+    }
+
+    // ── WhatsApp FAB ─────────────────────────────
+    const waFab = $('whatsappFab');
+    if (waFab && S.contact.whatsapp_url) {
+      waFab.href = S.contact.whatsapp_url;
+      waFab.style.display = 'flex';
+    } else if (waFab && S.contact.phone) {
+      // fallback: build wa.me link from phone number
+      const num = S.contact.phone.replace(/\D/g, '');
+      if (num) { waFab.href = `https://wa.me/${num}`; waFab.style.display = 'flex'; }
+    }
+
+  })(); // end content injector
+
+  // ══════════════════════════════════════════════
+  //  INTERACTIONS
+  // ══════════════════════════════════════════════
+
+  // Track announce bar height so nav sits below it
+  function updateBarHeight() {
+    const bar = document.getElementById('announceBar');
+    const h = bar ? bar.offsetHeight : 0;
+    document.documentElement.style.setProperty('--bar-h', h + 'px');
+    const nav = document.getElementById('nav');
+    if (nav) nav.style.top = h + 'px';
+  }
+  updateBarHeight();
+  window.addEventListener('resize', updateBarHeight);
+
+  // Sticky nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    const bar = document.getElementById('announceBar');
+    const barH = bar ? bar.offsetHeight : 0;
+    nav.classList.toggle('nav--solid', window.scrollY > barH + 10);
+  }, { passive: true });
+
+  // Mobile menu
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Scroll animations
+  const cardObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), +(e.target.dataset.delay || 0));
+        cardObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  const animSelectors = '.min-card,.sermon-card,.sermon-item,.service-card-sm,.pastor-card,.value-row,.stat,.step-card,.event-card,.nh-card,.give-method,.serve-area';
+  setTimeout(() => {
+    document.querySelectorAll(animSelectors).forEach((el, i) => {
+      el.classList.add('anim-up');
+      el.dataset.delay = i * 70;
+      cardObs.observe(el);
+    });
+  }, 100);
+
+  // Counter animation
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const target = +(el.dataset.target || 0);
+      if (!target) return;
+      let cur = 0;
+      const step = target / 60;
+      const timer = setInterval(() => {
+        cur = Math.min(cur + step, target);
+        el.textContent = Math.floor(cur);
+        if (cur >= target) clearInterval(timer);
+      }, 20);
+      counterObs.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-n').forEach(el => counterObs.observe(el));
+
+  // Active nav link on scroll
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+  const sections = [...document.querySelectorAll('section[id]')];
+  const activateNav = () => {
+    const scrollY = window.scrollY + 120;
+    let current = '';
+    sections.forEach(s => { if (s.offsetTop <= scrollY) current = s.id; });
+    navAnchors.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  };
+  window.addEventListener('scroll', activateNav, { passive: true });
+  activateNav();
+
+  // Back to top
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('fab--visible', window.scrollY > 500);
+  }, { passive: true });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Contact form
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.btn-submit');
+    btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Gracias! Te contactaremos pronto.';
+    btn.style.background = '#16a34a';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = 'Enviar <i class="fa-solid fa-paper-plane"></i>';
+      btn.style.background = '';
+      btn.disabled = false;
+      this.reset();
+    }, 5000);
+  });
+  </script>
+</body>
+</html>

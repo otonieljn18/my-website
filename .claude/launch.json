@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "my-website",
+      "runtimeExecutable": "/usr/bin/python3",
+      "runtimeArgs": ["-m", "http.server", "--directory", "/Users/or/Documents/Projects/my-website", "3456"],
+      "port": 3456
+    }
+  ]
+}
+

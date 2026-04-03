@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.facebook.com)",
+      "WebFetch(domain:web.facebook.com)",
+      "WebFetch(domain:www.instagram.com)",
+      "WebFetch(domain:iglesiamundodefe.org)"
+    ]
+  }
+}
