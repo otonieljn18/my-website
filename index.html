@@ -170,18 +170,6 @@
     </div>
   </section>
 
-  <!-- MISSION -->
-  <section class="mission">
-    <div class="mission-bg"></div>
-    <div class="container">
-      <p class="label label--gold">Nuestra misión</p>
-      <blockquote class="mission-quote">
-        Conoce a Dios. Encuentra libertad.<br/>
-        <em>Crece en comunidad. Haz la diferencia.</em>
-      </blockquote>
-    </div>
-  </section>
-
   <!-- PRÓXIMOS PASOS -->
   <section class="next-steps" id="pasos">
     <div class="container">
@@ -254,34 +242,6 @@
     </div>
   </section>
 
-  <!-- SERVE -->
-  <section class="serve">
-    <div class="serve-bg"></div>
-    <div class="container">
-      <div class="serve-layout">
-        <div class="serve-copy">
-          <p class="label label--gold">Equipo</p>
-          <h2 class="heading-display heading-display--light" id="serveHeadline"></h2>
-          <p class="body-text body-text--light" id="serveSub"></p>
-          <a href="#contacto" class="btn btn-gold-fill" id="serveCtaBtn"></a>
-        </div>
-        <div class="serve-areas" id="serveAreas">
-          <!-- Populated from content.js -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SCRIPTURE -->
-  <div class="scripture-break">
-    <div class="scripture-bg"></div>
-    <div class="container">
-      <i class="fa-solid fa-cross scripture-cross"></i>
-      <blockquote id="scriptureText"></blockquote>
-      <cite id="scriptureRef"></cite>
-    </div>
-  </div>
-
   <!-- GIVE -->
   <section class="give" id="dar">
     <div class="container">
@@ -300,12 +260,18 @@
     </div>
   </section>
 
-  <!-- MINISTRIES -->
+  <!-- MINISTRIES + SERVE -->
   <section class="ministries" id="ministerios">
     <div class="container">
-      <div class="section-header">
-        <p class="label">Ministerios</p>
-        <h2 class="heading-display">Un lugar<br/><em>para todos</em></h2>
+      <div class="ministries-top">
+        <div>
+          <p class="label">Ministerios</p>
+          <h2 class="heading-display">Un lugar<br/><em>para todos</em></h2>
+        </div>
+        <div class="ministries-serve-cta">
+          <p class="body-text" id="serveSub"></p>
+          <a href="#contacto" class="btn btn-dark-fill" id="serveCtaBtn"></a>
+        </div>
       </div>
       <div class="ministries-grid" id="ministriesGrid">
         <!-- Populated from content.js -->
@@ -329,49 +295,26 @@
           </div>
         </div>
         <div class="contact-right">
-          <form class="contact-form" id="contactForm" novalidate>
-            <div class="form-header">
+          <div class="pc-form-card">
+            <div class="pc-form-header">
               <h3>Planifica tu visita</h3>
-              <p>Cuéntanos un poco sobre ti y te ayudaremos a dar el siguiente paso.</p>
+              <p>Completa el formulario y te ayudaremos a dar el siguiente paso.</p>
             </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="fname">Nombre</label>
-                <input type="text" id="fname" name="fname" placeholder="Tu nombre" required />
-              </div>
-              <div class="form-field">
-                <label for="lname">Apellido</label>
-                <input type="text" id="lname" name="lname" placeholder="Tu apellido" />
-              </div>
+            <div class="pc-form-wrap">
+              <iframe
+                src="https://mundodefesd.churchcenter.com/people/forms/226294?iframe=true"
+                frameborder="0"
+                scrolling="auto"
+                id="pcFormIframe"
+                title="Planifica tu visita — Mundo de Fe Santo Domingo"
+                onload="resizePCFrame(this)">
+              </iframe>
             </div>
-            <div class="form-field">
-              <label for="email">Correo electrónico</label>
-              <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+            <div class="pc-form-footer">
+              <i class="fa-solid fa-lock"></i>
+              Formulario seguro · Tus datos van directamente a nuestro equipo pastoral
             </div>
-            <div class="form-field">
-              <label for="phone">Teléfono / WhatsApp</label>
-              <input type="tel" id="phone" name="phone" placeholder="+1 809 000 0000" />
-            </div>
-            <div class="form-field">
-              <label for="motivo">¿Cómo podemos ayudarte?</label>
-              <select id="motivo" name="motivo">
-                <option value="">Selecciona una opción</option>
-                <option>Es mi primera visita</option>
-                <option>Quiero conocer más sobre la iglesia</option>
-                <option>Tengo una petición de oración</option>
-                <option>Quiero unirme a un ministerio</option>
-                <option>Información sobre bautismo</option>
-                <option>Otro</option>
-              </select>
-            </div>
-            <div class="form-field">
-              <label for="mensaje">Mensaje (opcional)</label>
-              <textarea id="mensaje" name="mensaje" rows="3" placeholder="¿Cómo podemos orar por ti?"></textarea>
-            </div>
-            <button type="submit" class="btn btn-gold-fill btn-submit">
-              Enviar <i class="fa-solid fa-paper-plane"></i>
-            </button>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -874,19 +817,24 @@
   }, { passive: true });
   backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-  // Contact form
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('.btn-submit');
-    btn.innerHTML = '<i class="fa-solid fa-check"></i> ¡Gracias! Te contactaremos pronto.';
-    btn.style.background = '#16a34a';
-    btn.disabled = true;
-    setTimeout(() => {
-      btn.innerHTML = 'Enviar <i class="fa-solid fa-paper-plane"></i>';
-      btn.style.background = '';
-      btn.disabled = false;
-      this.reset();
-    }, 5000);
+  // Planning Center iframe auto-resize
+  function resizePCFrame(frame) {
+    try {
+      const h = frame.contentWindow.document.body.scrollHeight;
+      if (h && h > 200) frame.style.height = h + 'px';
+    } catch(e) {
+      // cross-origin: set a generous fixed height as fallback
+      frame.style.height = '1000px';
+    }
+  }
+  // Listen for postMessage height from Planning Center
+  window.addEventListener('message', function(e) {
+    if (!e.origin.includes('churchcenter.com')) return;
+    const frame = document.getElementById('pcFormIframe');
+    if (!frame) return;
+    if (e.data && e.data.height) {
+      frame.style.height = e.data.height + 'px';
+    }
   });
   </script>
 </body>

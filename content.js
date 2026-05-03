@@ -26,7 +26,7 @@ window.SITE = {
   // Set show: false to hide it
   // ─────────────────────────────────────────────
   announcement: {
-    show: true,
+    show: false,
     emoji: "✝️",
     text: "Celebra la Semana Santa con nosotros — Viernes 18 y Domingo 20 de Abril",
     cta_text: "Regístrate aquí",
@@ -154,7 +154,7 @@ window.SITE = {
   services: [
     {
       day:         "Domingo",
-      time:        "10:00 AM",
+      time:        "10:30 AM",
       name:        "Servicio Principal",
       description: "Adoración poderosa, Palabra que transforma y comunidad que te abraza.",
       featured:    true,

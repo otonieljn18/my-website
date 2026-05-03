@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>La Ruta de Discipulado — Mundo de Fe Santo Domingo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+/* ── Variables ── */
+:root {
+  --navy:    #0f1b35;
+  --navy2:   #162444;
+  --gold:    #c8963c;
+  --gold-md: #e8b84b;
+  --gold-lt: #f5d78e;
+  --cream:   #f7f4ef;
+  --white:   #ffffff;
+  --gray1:   #1e2535;
+  --gray2:   #4b5563;
+  --gray3:   #9ca3af;
+  --gray4:   #e5e7eb;
+}
+
+/* ── Reset ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--navy);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* ── Print Setup ── */
+@page {
+  size: Letter;
+  margin: 0;
+}
+@media print {
+  .page { page-break-after: always; page-break-inside: avoid; }
+  .no-print { display: none; }
+  body { background: white; }
+}
+
+/* ── Page Shell ── */
+.page {
+  width: 816px;
+  min-height: 1056px;
+  margin: 0 auto 48px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+}
+
+/* ══════════════════════════════════
+   PAGE 1 — PORTADA
+   ══════════════════════════════════ */
+.cover {
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 60px;
+  min-height: 1056px;
+  position: relative;
+}
+.cover-grain {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+}
+.cover-accent-top {
+  position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-md), var(--gold-lt), var(--gold-md), var(--gold));
+}
+.cover-accent-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.cover-logo-mark {
+  width: 80px; height: 80px; border-radius: 50%;
+  border: 1.5px solid rgba(200,150,60,0.4);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 40px;
+  background: rgba(200,150,60,0.06);
+}
+.cover-logo-mark svg { width: 40px; height: 40px; }
+.cover-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.28em;
+  text-transform: uppercase; color: var(--gold-md);
+  margin-bottom: 28px; display: flex; align-items: center; gap: 16px;
+}
+.cover-eyebrow-line {
+  width: 40px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-md));
+}
+.cover-eyebrow-line:last-child {
+  background: linear-gradient(90deg, var(--gold-md), transparent);
+}
+.cover-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 68px; font-weight: 300; color: var(--white);
+  line-height: 0.95; margin-bottom: 16px; letter-spacing: -0.01em;
+}
+.cover-title em {
+  font-style: italic; color: var(--gold-md);
+}
+.cover-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.35em;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
+  margin-bottom: 64px;
+}
+.cover-divider {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 64px;
+}
+.cover-description {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 300; font-style: italic;
+  color: rgba(255,255,255,0.65); max-width: 520px;
+  line-height: 1.6; margin-bottom: 80px;
+}
+.cover-church {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 40px; width: 100%;
+}
+.cover-church-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px; font-weight: 800; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--white); margin-bottom: 8px;
+}
+.cover-church-name span { color: var(--gold-md); }
+.cover-church-pastors {
+  font-size: 13px; color: rgba(255,255,255,0.4);
+  font-style: italic;
+}
+.cover-version {
+  position: absolute; bottom: 32px; right: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(255,255,255,0.2);
+}
+/* ── Logo images ── */
+.cover-logo-img {
+  height: 88px; width: auto; display: block; margin: 0 auto 40px;
+  filter: brightness(0) invert(1);
+}
+.header-logo-img {
+  height: 28px; width: auto; display: inline-block; vertical-align: middle;
+  margin-right: 10px; filter: brightness(0) saturate(0);
+  opacity: 0.7;
+}
+.back-cover-logo-img {
+  height: 64px; width: auto; display: block; margin: 0 auto 20px;
+  opacity: 0.6;
+}
+
+/* ══════════════════════════════════
+   SHARED PAGE LAYOUT
+   ══════════════════════════════════ */
+.doc-page {
+  padding: 64px 72px;
+  min-height: 1056px;
+  display: flex; flex-direction: column;
+}
+.page-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 48px; padding-bottom: 24px;
+  border-bottom: 1px solid var(--gray4);
+}
+.page-header-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--navy);
+}
+.page-header-logo span { color: var(--gold); }
+.page-header-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px; color: var(--gray3); font-weight: 300;
+}
+.section-eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--gold);
+  display: block; margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px; font-weight: 600; color: var(--navy);
+  line-height: 1.05; margin-bottom: 32px;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+.section-lead {
+  font-size: 16px; color: var(--gray2); line-height: 1.8;
+  max-width: 600px; margin-bottom: 40px;
+}
+
+/* ══════════════════════════════════
+   PAGE 2 — LA VISIÓN
+   ══════════════════════════════════ */
+.vision-quote {
+  background: var(--navy);
+  border-radius: 12px; padding: 48px 52px;
+  margin-bottom: 40px; position: relative; overflow: hidden;
+}
+.vision-quote::before {
+  content: '\201C';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 200px; font-weight: 700; color: rgba(200,150,60,0.08);
+  position: absolute; top: -20px; left: 24px; line-height: 1;
+}
+.vision-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 300; font-style: italic;
+  color: var(--white); line-height: 1.5; position: relative; z-index: 1;
+}
+.vision-quote cite {
+  display: block; margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold-md);
+  font-style: normal; position: relative; z-index: 1;
+}
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.problem-card {
+  padding: 28px 24px; border-radius: 8px;
+  border: 1px solid var(--gray4); background: var(--cream);
+}
+.problem-card .icon {
+  font-size: 24px; margin-bottom: 14px; display: block;
+}
+.problem-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600; color: var(--navy);
+  margin-bottom: 10px;
+}
+.problem-card p {
+  font-size: 13px; color: var(--gray2); line-height: 1.7;
+}
+.gold-stat-row {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px; background: var(--gray4);
+  border-radius: 8px; overflow: hidden; margin-top: 32px;
+}
+.gold-stat {
+  background: var(--white); padding: 24px 20px; text-align: center;
+}
+.gold-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px; font-weight: 700; color: var(--gold); line-height: 1;
+  display: block;
+}
+.gold-stat-label {
+  font-size: 12px; color: var(--gray2); margin-top: 6px;
+  font-family: 'Montserrat', sans-serif; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase;
+}
+
+/* ══════════════════════════════════
+   PAGE 3 — LA RUTA DE FE
+   ══════════════════════════════════ */
+.journey-stages {
+  display: flex; flex-direction: column; gap: 8px;
+  margin-bottom: 40px;
+}
+.stage-row {
+  display: grid;
+  grid-template-columns: 32px 180px 1fr 100px;
+  gap: 16px; align-items: center;
+  padding: 16px 20px; border-radius: 8px;
+  border: 1px solid var(--gray4);
+  transition: background 0.2s;
+}
+.stage-row:nth-child(odd) { background: var(--cream); }
+.stage-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 700; color: var(--gold);
+  line-height: 1; text-align: center;
+}
+.stage-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--navy);
+}
+.stage-desc {
+  font-size: 13px; color: var(--gray2); line-height: 1.5;
+}
+.stage-time {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gray3);
+  text-align: right;
+}
+.stage-row.stage-highlight {
+  border-color: var(--gold);
+  background: rgba(200,150,60,0.04);
+}
+.stage-row.stage-highlight .stage-num { color: var(--navy); }
+.stage-row.stage-highlight .stage-name { color: var(--gold); }
+.journey-note {
+  background: var(--navy); border-radius: 8px;
+  padding: 24px 28px; display: flex; gap: 20px; align-items: flex-start;
+}
+.journey-note-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.journey-note p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-style: italic; color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+}
+.journey-note strong { color: var(--gold-md); font-style: normal; }
+
+/* ══════════════════════════════════
+   PAGE 4 — EL EQUIPO
+   ══════════════════════════════════ */
+.team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.team-card {
+  border: 1px solid var(--gray4); border-radius: 10px;
+  overflow: hidden;
+}
+.team-card-header {
+  background: var(--navy); padding: 20px 24px;
+  display: flex; align-items: center; gap: 14px;
+}
+.team-card-icon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(200,150,60,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.team-card-header h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--white);
+}
+.team-card-header p {
+  font-size: 11px; color: rgba(255,255,255,0.45); margin-top: 3px;
+}
+.team-card-body { padding: 20px 24px; }
+.team-card-body ul {
+  list-style: none; display: flex; flex-direction: column; gap: 8px;
+}
+.team-card-body li {
+  font-size: 13px; color: var(--gray2); line-height: 1.5;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.team-card-body li::before {
+  content: '→'; color: var(--gold); font-weight: 700;
+  flex-shrink: 0; margin-top: 1px;
+}
+.tools-section { margin-top: 32px; }
+.tools-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+}
+.tools-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.tool-item {
+  background: var(--cream); border-radius: 8px;
+  padding: 16px 14px; text-align: center;
+  border: 1px solid var(--gray4);
+}
+.tool-item .tool-icon { font-size: 22px; margin-bottom: 8px; display: block; }
+.tool-item h5 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; color: var(--navy);
+  letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px;
+}
+.tool-item p { font-size: 11px; color: var(--gray2); line-height: 1.4; }
+
+/* ══════════════════════════════════
+   PAGE 5 — EL PROCESO SEMANAL
+   ══════════════════════════════════ */
+.timeline { display: flex; flex-direction: column; gap: 0; }
+.timeline-item {
+  display: grid; grid-template-columns: 120px 1fr;
+  gap: 0;
+}
+.timeline-left {
+  padding: 24px 24px 24px 0;
+  text-align: right; position: relative;
+}
+.timeline-left::after {
+  content: '';
+  position: absolute; right: -1px; top: 0; bottom: 0;
+  width: 1px; background: var(--gray4);
+}
+.timeline-dot {
+  position: absolute; right: -6px; top: 28px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--gold); border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--gold);
+}
+.timeline-time {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--navy);
+}
+.timeline-day {
+  font-size: 11px; color: var(--gray3); margin-top: 2px;
+}
+.timeline-right { padding: 20px 0 20px 32px; }
+.timeline-right h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 600; color: var(--navy);
+  margin-bottom: 6px;
+}
+.timeline-right p { font-size: 13px; color: var(--gray2); line-height: 1.6; }
+.timeline-right .who {
+  display: inline-block; margin-top: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold);
+  background: rgba(200,150,60,0.1); padding: 3px 10px; border-radius: 20px;
+}
+.timeline-right .msg-box {
+  background: var(--cream); border-left: 3px solid var(--gold);
+  border-radius: 0 6px 6px 0; padding: 12px 16px; margin-top: 10px;
+}
+.timeline-right .msg-box p {
+  font-size: 12px; color: var(--navy); font-style: italic; line-height: 1.7;
+}
+
+/* ══════════════════════════════════
+   PAGE 6 — LOS GUIONES
+   ══════════════════════════════════ */
+.script-section { margin-bottom: 32px; }
+.script-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+}
+.script-box {
+  background: var(--cream); border-radius: 8px;
+  padding: 24px 28px; border: 1px solid var(--gray4);
+  position: relative;
+}
+.script-box::before {
+  content: attr(data-channel);
+  position: absolute; top: -10px; left: 20px;
+  background: var(--navy); color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; padding: 3px 12px; border-radius: 20px;
+}
+.script-box h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gray2); margin-bottom: 10px;
+}
+.script-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-weight: 400; color: var(--navy);
+  line-height: 1.7; font-style: italic;
+}
+.script-note {
+  margin-top: 10px; font-size: 11px; color: var(--gray3);
+  border-top: 1px solid var(--gray4); padding-top: 10px;
+}
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.rules-box {
+  background: var(--navy); border-radius: 8px; padding: 24px 24px;
+}
+.rules-box h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold-md); margin-bottom: 16px;
+}
+.rules-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.rules-box li {
+  font-size: 13px; color: rgba(255,255,255,0.7);
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.rules-box .yes::before { content: '✓'; color: #4ade80; font-weight: 700; flex-shrink: 0; }
+.rules-box .no::before  { content: '✗'; color: #f87171; font-weight: 700; flex-shrink: 0; }
+
+/* ══════════════════════════════════
+   PAGE 7 — LOS PASOS DE FE
+   ══════════════════════════════════ */
+.pasos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.paso-card {
+  border-radius: 10px; overflow: hidden;
+  border: 1px solid var(--gray4);
+}
+.paso-card-header {
+  padding: 24px 28px;
+}
+.paso-card-header.p1 { background: linear-gradient(135deg, #0f1b35, #1a2a5e); }
+.paso-card-header.p2 { background: linear-gradient(135deg, #2a0a3a, #4a1a5e); }
+.paso-card-header.p3 { background: linear-gradient(135deg, #0a2040, #1a3a6e); }
+.paso-card-header.p4 { background: linear-gradient(135deg, #062a1a, #0a4a2a); }
+.paso-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px; font-weight: 700; color: rgba(255,255,255,0.15);
+  line-height: 1; margin-bottom: -10px;
+}
+.paso-card-header h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 6px;
+}
+.paso-card-header p {
+  font-size: 12px; color: rgba(255,255,255,0.5); font-style: italic;
+}
+.paso-card-body { padding: 20px 24px; background: var(--white); }
+.paso-card-body ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.paso-card-body li {
+  font-size: 13px; color: var(--gray2); display: flex; gap: 10px; align-items: flex-start;
+}
+.paso-card-body li::before { content: '·'; color: var(--gold); font-weight: 700; flex-shrink: 0; font-size: 16px; margin-top: -1px; }
+.paso-resource {
+  background: var(--cream); border-radius: 6px; padding: 10px 14px;
+  font-size: 11px; color: var(--gray2); border-left: 3px solid var(--gold);
+}
+.paso-resource strong { color: var(--navy); font-weight: 600; }
+
+/* ══════════════════════════════════
+   PAGE 8 — HOJA DE SEGUIMIENTO
+   ══════════════════════════════════ */
+.tracking-header {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px; margin-bottom: 24px;
+}
+.tracking-field {
+  border-bottom: 1px solid var(--navy); padding-bottom: 6px;
+}
+.tracking-field label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gray2); display: block; margin-bottom: 4px;
+}
+.tracking-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+.tracking-table th {
+  background: var(--navy); color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 10px 12px; text-align: left;
+}
+.tracking-table td {
+  padding: 14px 12px; border-bottom: 1px solid var(--gray4);
+  font-size: 12px; color: var(--gray2);
+  vertical-align: top;
+}
+.tracking-table tr:nth-child(even) td { background: var(--cream); }
+.tracking-table .check-col { text-align: center; }
+.check-circle {
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 1.5px solid var(--gray3);
+  display: inline-block;
+}
+.stage-pill {
+  display: inline-block; padding: 2px 10px; border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.pill-visit { background: rgba(200,150,60,0.15); color: #a07820; }
+.pill-contact { background: rgba(37,99,235,0.1); color: #1d4ed8; }
+.pill-paso { background: rgba(124,58,237,0.1); color: #6d28d9; }
+.pill-group { background: rgba(5,150,105,0.12); color: #047857; }
+.tracking-instructions {
+  background: var(--cream); border-radius: 8px; padding: 20px 24px;
+  border: 1px solid var(--gray4);
+}
+.tracking-instructions h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--navy); margin-bottom: 12px;
+}
+.tracking-instructions ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.tracking-instructions li {
+  font-size: 12px; color: var(--gray2);
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.tracking-instructions li::before { content: '→'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+
+/* ══════════════════════════════════
+   PAGE 9 — LAS MÉTRICAS
+   ══════════════════════════════════ */
+.metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+.metric-card {
+  padding: 28px 24px; border-radius: 10px;
+  border: 1px solid var(--gray4);
+}
+.metric-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--navy); margin-bottom: 6px;
+}
+.metric-card .how {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 12px; display: block;
+}
+.metric-card p { font-size: 13px; color: var(--gray2); line-height: 1.6; }
+.metric-card .target {
+  margin-top: 12px; padding: 8px 14px;
+  background: var(--navy); border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--gold-md);
+  display: inline-block;
+}
+.review-section {
+  background: var(--navy); border-radius: 10px; padding: 32px 36px;
+}
+.review-section h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 600; color: var(--white); margin-bottom: 24px;
+}
+.review-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+.review-item h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gold-md); margin-bottom: 10px;
+}
+.review-item ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.review-item li {
+  font-size: 12px; color: rgba(255,255,255,0.6);
+  display: flex; gap: 8px; align-items: flex-start;
+}
+.review-item li::before { content: '□'; color: var(--gold); flex-shrink: 0; }
+
+/* ══════════════════════════════════
+   PAGE 10 — CONTRATAPA
+   ══════════════════════════════════ */
+.back-cover {
+  background: var(--cream);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 80px 80px;
+  min-height: 1056px; position: relative;
+}
+.back-cover-accent {
+  position: absolute; top: 0; left: 0; right: 0; height: 6px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-md), var(--gold-lt), var(--gold-md), var(--gold));
+}
+.back-cover-manifesto {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px; font-weight: 300; color: var(--navy);
+  line-height: 1.35; max-width: 560px; margin-bottom: 48px;
+}
+.back-cover-manifesto em { font-style: italic; color: var(--gold); }
+.back-cover-divider {
+  width: 60px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto 48px;
+}
+.back-cover-verse {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-style: italic; font-weight: 300;
+  color: var(--gray2); max-width: 480px;
+  margin-bottom: 12px; line-height: 1.6;
+}
+.back-cover-ref {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 80px;
+}
+.back-cover-church {
+  border-top: 1px solid var(--gray3); padding-top: 40px; width: 100%;
+}
+.back-cover-church-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px; font-weight: 800; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--navy); margin-bottom: 8px;
+}
+.back-cover-church-name span { color: var(--gold); }
+.back-cover-sub {
+  font-size: 13px; color: var(--gray2);
+  margin-bottom: 24px;
+}
+.back-cover-contact {
+  display: flex; gap: 32px; justify-content: center; align-items: center;
+}
+.back-cover-contact span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+  color: var(--gray2);
+}
+.back-cover-contact span strong { color: var(--navy); }
+
+/* ══════════════════════════════════
+   PRINT BUTTON
+   ══════════════════════════════════ */
+.print-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--navy); padding: 12px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.print-bar-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(255,255,255,0.6);
+}
+.print-bar-title span { color: var(--gold-md); }
+.print-btn {
+  background: linear-gradient(135deg, var(--gold), var(--gold-md));
+  color: var(--navy); border: none; cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 10px 28px; border-radius: 3px;
+  transition: opacity 0.2s;
+}
+.print-btn:hover { opacity: 0.85; }
+body { padding-top: 56px; }
+@media print { .print-bar { display: none; } body { padding-top: 0; } .page { box-shadow: none; margin-bottom: 0; } }
+</style>
+</head>
+<body>
+
+<!-- PRINT BAR -->
+<div class="print-bar no-print">
+  <span class="print-bar-title">La Ruta de Discipulado — <span>Pastor Otoniel Rincón · Mundo de Fe Santo Domingo</span></span>
+  <button class="print-btn" onclick="window.print()">⊞ Imprimir / Guardar PDF</button>
+</div>
+
+<!-- ══════════════════════════════
+     PAGE 1 — PORTADA
+     ══════════════════════════════ -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-grain"></div>
+    <div class="cover-accent-top"></div>
+    <div class="cover-accent-bottom"></div>
+
+    <img src="images/logo.png" alt="Mundo de Fe Santo Domingo" class="cover-logo-img"
+      onerror="this.style.display='none'" />
+
+    <div class="cover-eyebrow">
+      <span class="cover-eyebrow-line"></span>
+      Blueprint de Discipulado
+      <span class="cover-eyebrow-line"></span>
+    </div>
+
+    <h1 class="cover-title">La Ruta de<br/><em>Discipulado</em></h1>
+    <p class="cover-subtitle">Mundo de Fe Santo Domingo · 2026</p>
+    <div class="cover-divider"></div>
+
+    <p class="cover-description">
+      El proceso que usamos en Mundo de Fe Santo Domingo para acompañar
+      a cada persona — desde que nos visita por primera vez hasta que
+      se convierte en alguien que discipula a otros.
+    </p>
+
+    <div class="cover-church">
+      <p class="cover-church-name">MUNDO DE FE <span>SANTO DOMINGO</span></p>
+      <p class="cover-church-pastors">Pastor Otoniel Rincón · Pastora Jhanna Báez · 2026</p>
+    </div>
+
+    <span class="cover-version">Documento confidencial · Uso interno</span>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     PAGE 2 — LA VISIÓN
+     ══════════════════════════════ -->
+<div class="page">
+  <div class="doc-page">
+    <div class="page-header">
+      <span class="page-header-logo"><img src="images/logo.png" alt="" class="header-logo-img" onerror="this.style.display='none'" />MUNDO DE FE <span>SANTO DOMINGO</span></span>
+      <span class="page-header-num">01</span>
+    </div>
+
+    <span class="section-eyebrow">El Fundamento</span>
+    <h2 class="section-title">Por qué en Mundo de Fe<br/><em>tenemos un proceso</em></h2>
+
+    <div class="vision-quote">
+      <p>"En Mundo de Fe creemos que cada persona que entra por nuestra puerta fue enviada por Dios. Nuestro trabajo no es solo recibirla — es caminar con ella hasta que encuentre su propósito."</p>
+      <cite>— Pastor Otoniel Rincón, Mundo de Fe Santo Domingo</cite>
+    </div>
+
+    <div class="three-col">
+      <div class="problem-card">
+        <span class="icon">🚪</span>
+        <h4>La puerta giratoria</h4>
+        <p>Cada domingo Dios nos manda personas nuevas. Sin un proceso claro, se van tan rápido como llegan. Eso no puede seguir pasando en Mundo de Fe.</p>
+      </div>
+      <div class="problem-card">
+        <span class="icon">🤝</span>
+        <h4>El seguimiento personal</h4>
+        <p>En nuestra iglesia cada persona merece ser conocida por su nombre, no ser un número más. Este sistema garantiza que nadie quede sin contacto.</p>
+      </div>
+      <div class="problem-card">
+        <span class="icon">🌱</span>
+        <h4>Crecer con propósito</h4>
+        <p>Queremos ver a Santo Domingo transformada. Eso solo pasa cuando cada creyente crece, sirve y discipula a otros. Este es nuestro proceso.</p>
+      </div>
+    </div>
+
+    <div class="gold-stat-row">
+      <div class="gold-stat">
+        <span class="gold-stat-num">9%</span>
+        <p class="gold-stat-label">Retención promedio<br/>sin proceso</p>
+      </div>
+      <div class="gold-stat">
+        <span class="gold-stat-num">85%</span>
+        <p class="gold-stat-label">Probabilidad de quedarse<br/>si regresan el 2do domingo</p>
+      </div>
+      <div class="gold-stat">
+        <span class="gold-stat-num">33%</span>
+        <p class="gold-stat-label">Retención meta con<br/>proceso bien ejecutado</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     PAGE 3 — LA RUTA DE FE
+     ══════════════════════════════ -->
+<div class="page">
+  <div class="doc-page">
+    <div class="page-header">
+      <span class="page-header-logo"><img src="images/logo.png" alt="" class="header-logo-img" onerror="this.style.display='none'" />MUNDO DE FE <span>SANTO DOMINGO</span></span>
+      <span class="page-header-num">02</span>
+    </div>
+
+    <span class="section-eyebrow">El Mapa</span>
+    <h2 class="section-title">La Ruta de <em>Fe</em></h2>
+    <p class="section-lead">En Mundo de Fe cada persona está en una de estas etapas. Como pastores y líderes, nuestra responsabilidad es saber dónde está cada uno y caminar con ellos hacia el siguiente paso.</p>
+
+    <div class="journey-stages">
+      <div class="stage-row">
+        <div class="stage-num">1</div>
+        <div class="stage-name">VISITANTE</div>
+        <div class="stage-desc">Llegó por primera vez. No sabe qué esperar. Está evaluando si este es su lugar.</div>
+        <div class="stage-time">Hora 0</div>
+      </div>
+      <div class="stage-row stage-highlight">
+        <div class="stage-num">2</div>
+        <div class="stage-name">CONTACTADO</div>
+        <div class="stage-desc">Recibió seguimiento en las primeras 24 horas. Hay una conversación abierta con un líder.</div>
+        <div class="stage-time">24–48 hrs</div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">3</div>
+        <div class="stage-name">ORIENTADO</div>
+        <div class="stage-desc">Asistió a la clase Soy Nuevo. Conoce la visión, los pastores y el próximo paso.</div>
+        <div class="stage-time">2–3 semanas</div>
+      </div>
+      <div class="stage-row stage-highlight">
+        <div class="stage-num">4</div>
+        <div class="stage-name">EN PASOS DE FE</div>
+        <div class="stage-desc">Está completando el camino de 4 pasos. Creciendo en conocimiento, libertad y propósito.</div>
+        <div class="stage-time">1–4 meses</div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">5</div>
+        <div class="stage-name">CONECTADO</div>
+        <div class="stage-desc">Miembro activo de un Grupo de Vida. Tiene comunidad auténtica durante la semana.</div>
+        <div class="stage-time">3–6 meses</div>
+      </div>
+      <div class="stage-row stage-highlight">
+        <div class="stage-num">6</div>
+        <div class="stage-name">SIRVIENDO</div>
+        <div class="stage-desc">Activo en el Equipo de Impacto. Usa sus dones para hacer la diferencia en la iglesia.</div>
+        <div class="stage-time">4–8 meses</div>
+      </div>
+      <div class="stage-row">
+        <div class="stage-num">7</div>
+        <div class="stage-name">LIDERANDO</div>
+        <div class="stage-desc">Guía a otros. Lidera un grupo o un equipo ministerial con supervisión pastoral.</div>
+        <div class="stage-time">1–2 años</div>
+      </div>
+      <div class="stage-row stage-highlight">
+        <div class="stage-num">8</div>
+        <div class="stage-name">MULTIPLICANDO</div>
+        <div class="stage-desc">Discipula a otros activamente. El proceso completo se reproduce a través de él/ella.</div>
+        <div class="stage-time">2+ años</div>
+      </div>
+    </div>
+
+    <div class="journey-note">
+      <span class="journey-note-icon">✦</span>
+      <p>"En Mundo de Fe no medimos el éxito por cuántas personas llenan el salón. Lo medimos por cuántas están <strong>avanzando en su fe</strong>. Una persona que da un paso hoy, mañana ayuda a otro a darlo."<br/><br/><strong style="color:var(--gold-md);font-style:normal;font-size:13px;letter-spacing:0.1em;font-family:'Montserrat',sans-serif;">— Pastor Otoniel Rincón</strong></p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     PAGE 4 — EL EQUIPO
+     ══════════════════════════════ -->
+<div class="page">
+  <div class="doc-page">
+    <div class="page-header">
+      <span class="page-header-logo"><img src="images/logo.png" alt="" class="header-logo-img" onerror="this.style.display='none'" />MUNDO DE FE <span>SANTO DOMINGO</span></span>
+      <span class="page-header-num">03</span>
+    </div>
+
+    <span class="section-eyebrow">Nuestro Equipo</span>
+    <h2 class="section-title">Las personas detrás<br/><em>de cada persona</em></h2>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-card-icon">🎯</div>
+          <div>
+            <h3>Coordinador de Conexión</h3>
+            <p>El rol más crítico del sistema</p>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <ul>
+            <li>Llega 30 minutos antes del servicio cada domingo</li>
+            <li>Comparte el link o QR del formulario de Planning Center con cada visitante</li>
+            <li>Confirma que el registro quedó en Planning Center People</li>
+            <li>Envía el WhatsApp de bienvenida en las primeras 2 horas</li>
+            <li>Asigna el seguimiento al líder correcto</li>
+            <li>Reporta al pastor cada lunes en la mañana</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-card-icon">📞</div>
+          <div>
+            <h3>Líderes de Seguimiento</h3>
+            <p>Los pastores de primera línea</p>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <ul>
+            <li>Reciben la asignación del Coordinador ese mismo día</li>
+            <li>Hacen la llamada personal en las primeras 24 horas</li>
+            <li>Mantienen la secuencia de 7 días sin excepción</li>
+            <li>Registran cada contacto en la hoja de seguimiento</li>
+            <li>Escalan al Coordinador si no hay respuesta en 48 hrs</li>
+            <li>Invitan personalmente a Soy Nuevo y a los Pasos</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-card-icon">🏠</div>
+          <div>
+            <h3>Equipo de Hospitalidad</h3>
+            <p>La primera impresión que no se olvida</p>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <ul>
+            <li>Recibe a cada persona en la entrada con su nombre</li>
+            <li>Identifica y acompaña a los visitantes nuevos</li>
+            <li>Entrega y asiste con el formulario de conexión</li>
+            <li>Sienta a los visitantes cerca de líderes del equipo</li>
+            <li>Al salir del servicio: conecta con el Coordinador</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card-header">
+          <div class="team-card-icon">👑</div>
+          <div>
+            <h3>Pastor Principal</h3>
+            <p>El guardián del proceso</p>
+          </div>
+        </div>
+        <div class="team-card-body">
+          <ul>
+            <li>Recibe resumen de visitantes cada lunes a las 6PM</li>
+            <li>Enseña personalmente el Paso 1 cada mes</li>
+            <li>Contacta personalmente a visitantes sin respuesta en 4+ días</li>
+            <li>Revisa las métricas semanalmente en reunión de equipo</li>
+            <li>Es el responsable final si alguien no fue contactado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tools-section">
+      <p class="tools-title">Herramientas del Sistema</p>
+      <div class="tools-grid">
+        <div class="tool-item">
+          <span class="tool-icon">📱</span>
+          <h5>Formulario Digital</h5>
+          <p>Planning Center — visitantes llenan en su celular</p>
+        </div>
+        <div class="tool-item">
+          <span class="tool-icon">💬</span>
+          <h5>WhatsApp Business</h5>
+          <p>Canal principal de seguimiento y contacto</p>
+        </div>
+        <div class="tool-item">
+          <span class="tool-icon">📊</span>
+          <h5>Planning Center People</h5>
+          <p>Base de datos central de personas</p>
+        </div>
+        <div class="tool-item">
+          <span class="tool-icon">📅</span>
+          <h5>Reunión Lunes</h5>
+          <p>Revisión semanal del equipo — 30 min</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tools-section" style="margin-top:16px">
+      <p class="tools-title">Formulario de Conexión Digital</p>
+      <div style="background:var(--navy);border-radius:10px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+        <div>
+          <p style="font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-md);margin-bottom:8px;">PLANNING CENTER — CHURCH CENTER</p>
+          <p style="font-size:14px;color:rgba(255,255,255,0.8);margin-bottom:6px;">Cada visitante llena este formulario al llegar — desde su celular escaneando el QR o con el link directo.</p>
+          <p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--gold-lt);word-break:break-all;">mundodefesd.churchcenter.com/people/forms/226294</p>
+        </div>
+        <div style="text-align:center;flex-shrink:0;">
+          <div style="background:white;border-radius:8px;padding:6px;display:inline-block;">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=90x90&data=https://mundodefesd.churchcenter.com/people/forms/226294&color=0f1b35&bgcolor=ffffff&margin=2" alt="QR Formulario Mundo de Fe" width="90" height="90" style="display:block;border-radius:4px;" />
+          </div>
+          <p style="font-size:10px;color:rgba(255,255,255,0.4);margin-top:8px;font-family:'Montserrat',sans-serif;letter-spacing:0.05em;">Escanea para registrarte</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     PAGE 5 — EL PROCESO SEMANAL
+     ══════════════════════════════ -->
+<div class="page">
+  <div class="doc-page">
+    <div class="page-header">
+      <span class="page-header-logo"><img src="images/logo.png" alt="" class="header-logo-img" onerror="this.style.display='none'" />MUNDO DE FE <span>SANTO DOMINGO</span></span>
+      <span class="page-header-num">04</span>
+    </div>
+
+    <span class="section-eyebrow">La Secuencia</span>
+    <h2 class="section-title">Los primeros <em>7 días</em></h2>
+    <p class="section-lead">En Mundo de Fe los primeros 7 días después de una visita lo determinan todo. Este proceso no es opcional para nuestro equipo — es nuestra promesa pastoral a cada persona que Dios nos envía.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">HORA 2</div>
+          <div class="timeline-day">Domingo</div>
+        </div>
+        <div class="timeline-right">
+          <h4>WhatsApp de Bienvenida</h4>
+          <p>El Coordinador envía el primer mensaje. Cálido, personal, con su nombre. Sin invitar a nada todavía.</p>
+          <span class="who">Coordinador de Conexión</span>
+          <div class="msg-box">
+            <p>"Hola [Nombre] 😊 Soy [Nombre], de Mundo de Fe. Qué bueno tenerte con nosotros hoy. ¿Cómo te fue en el servicio? — Ps. Otoniel y Jhanna"</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">DÍA 1</div>
+          <div class="timeline-day">Lunes</div>
+        </div>
+        <div class="timeline-right">
+          <h4>Llamada Personal</h4>
+          <p>El líder asignado llama. Habla 20%, escucha 80%. Meta: conectar, no informar. Si no responde, deja mensaje de voz de 30 segundos y envía WhatsApp.</p>
+          <span class="who">Líder de Seguimiento</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">DÍA 3</div>
+          <div class="timeline-day">Miércoles</div>
+        </div>
+        <div class="timeline-right">
+          <h4>WhatsApp de Conexión</h4>
+          <p>Comparte un recurso breve — un versículo, el resumen del sermón o un mensaje de aliento. Termina con una pregunta espiritual sencilla.</p>
+          <span class="who">Líder de Seguimiento</span>
+          <div class="msg-box">
+            <p>"Hola [Nombre], estuve pensando en algo que el Pastor Otoniel dijo el domingo y quería compartirlo contigo: [versículo o frase]. ¿Cómo has estado esta semana?"</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">DÍA 6</div>
+          <div class="timeline-day">Sábado</div>
+        </div>
+        <div class="timeline-right">
+          <h4>Invitación al Domingo</h4>
+          <p>Un mensaje corto, afectuoso. Recuérdales el horario. Hazlos sentir esperados, no convocados.</p>
+          <span class="who">Líder de Seguimiento</span>
+          <div class="msg-box">
+            <p>"Hola [Nombre] 🙏 Te esperamos mañana domingo a las 10AM. Va a ser una mañana especial. ¡Nos vemos!"</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-time">DOMINGO 2</div>
+          <div class="timeline-day">Si regresan</div>
+        </div>
+        <div class="timeline-right">
+          <h4>El Momento Decisivo</h4>
+          <p>El equipo de hospitalidad los reconoce por nombre. Después del servicio: presentación personal con el pastor e invitación a <strong>Soy Nuevo</strong> ese mismo día o la semana siguiente.</p>
+          <span class="who">Hospitalidad + Coordinador + Pastor</span>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-dot" style="background:#f87171"></div>
+          <div class="timeline-time">48 HORAS</div>
+          <div class="timeline-day">Sin respuesta</div>
+        </div>
+        <div class="timeline-right">
+          <h4>Protocolo de Escalación</h4>
+          <p>Si no hay respuesta en 48 horas: el líder notifica al Coordinador. En 72 horas: el Pastor escribe personalmente. Nadie desaparece del proceso.</p>
+          <span class="who" style="color:#f87171; background:rgba(248,113,113,0.1)">Escalación urgente</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     PAGE 6 — LOS GUIONES
+     ══════════════════════════════ -->
+<div class="page">
+  <div class="doc-page">
+    <div class="page-header">
+      <span class="page-header-logo"><img src="images/logo.png" alt="" class="header-logo-img" onerror="this.style.display='none'" />MUNDO DE FE <span>SANTO DOMINGO</span></span>
+      <span class="page-header-num">05</span>
+    </div>
+
+    <span class="section-eyebrow">Las Palabras Exactas</span>
+    <h2 class="section-title">Lo que decimos en<br/><em>Mundo de Fe</em></h2>
+
+    <div class="two-col" style="margin-bottom:20px">
+      <div>
+        <div class="script-section">
+          <p class="script-label">WhatsApp — Visitante con familia</p>
+          <div class="script-box" data-channel="WHATSAPP · HORA 2">
+            <p class="script-text">"Hola [Nombre] 😊 Soy [Nombre], de Mundo de Fe. Fue hermoso tener a tu familia con nosotros hoy. ¿Cómo se sintieron?"</p>
+            <p class="script-note">Siempre termina con una pregunta. Espera la respuesta antes de enviar más mensajes.</p>
+          </div>
+        </div>
+        <div class="script-section" style="margin-top:20px">
+          <p class="script-label">WhatsApp — Con petición de oración</p>
+          <div class="script-box" data-channel="WHATSAPP · HORA 2">
+            <p class="script-text">"Hola [Nombre] 😊 Soy [Nombre], de Mundo de Fe. Vimos tu petición de oración. Ya estamos creyendo contigo 🙏 ¿Cómo estás?"</p>
+            <p class="script-note">La petición de oración va al pastor ESE DÍA. No esperar.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="script-section">
+          <p class="script-label">Llamada telefónica — Día 1</p>
+          <div class="script-box" data-channel="LLAMADA · DÍA 1">
+            <p class="script-text">"Hola [Nombre], ¿cómo estás? Soy [Nombre] de Mundo de Fe. Solo quería llamarte para decirte que fue un placer tenerte el domingo. ¿Qué te pareció?"</p>
+            <p class="script-note">Pausa aquí. Escucha. No ofrezcas nada en esta llamada.</p>
+          </div>
+        </div>
+        <div class="script-section" style="margin-top:20px">
+          <p class="script-label">Invitación a Soy Nuevo — Personal</p>
+          <div class="script-box" data-channel="CONVERSACIÓN · DOMINGO 2">
+            <p class="script-text">"[Nombre], tenemos una noche especial este [día] donde puedes conocernos mejor. Hay cena, hay cuidado de niños y es muy relajado. ¿Puedo contarte más?"</p>
+            <p class="script-note">Nunca es un anuncio. Siempre es una invitación personal de alguien que ya conoce.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="rules-box">
+        <h4>✓ Siempre hacer esto</h4>
+        <ul>
+          <li class="yes">Usar el nombre de la persona desde la primera línea</li>
+          <li class="yes">Terminar con una pregunta abierta</li>
+          <li class="yes">Esperar la respuesta antes de enviar más</li>
+          <li class="yes">Mensaje de WhatsApp máximo 4 líneas</li>
+          <li class="yes">Firmar con el nombre del líder + los pastores</li>
+          <li class="yes">Registrar cada contacto en la hoja de seguimiento</li>
+        </ul>
+      </div>
+      <div class="rules-box">
+        <h4>✗ Nunca hacer esto</h4>
+        <ul>
+          <li class="no">Enviar el mismo mensaje a varios al mismo tiempo</li>
+          <li class="no">Pedir algo en el primer contacto (dinero, servicio)</li>
+          <li class="no">Usar lenguaje religioso excesivo en el primer mensaje</li>
+          <li class="no">Enviar links en el primer WhatsApp</li>
+          <li class="no">Escribir mensajes largos (nadie los lee)</li>
+          <li class="no">Asumir que "alguien más lo hará"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     PAGE 7 — LOS PASOS DE FE
+     ══════════════════════════════ -->
+<div class="page">
+  <div class="doc-page">
+    <div class="page-header">
+      <span class="page-header-logo"><img src="images/logo.png" alt="" class="header-logo-img" onerror="this.style.display='none'" />MUNDO DE FE <span>SANTO DOMINGO</span></span>
+      <span class="page-header-num">06</span>
+    </div>
+
+    <span class="section-eyebrow">El Camino de Formación</span>
+    <h2 class="section-title">Los <em>Pasos de Fe</em></h2>
+    <p class="section-lead">Cuatro clases mensuales. Una noche cada una. Con cena y cuidado de niños. Cada paso completa una parte esencial del discipulado cristiano.</p>
+
+    <div class="pasos-grid">
+      <div class="paso-card">
+        <div class="paso-card-header p1">
+          <div class="paso-num">01</div>
+          <h3>Conoce a Dios</h3>
+          <p>"Todo comienza con una relación"</p>
+        </div>
+        <div class="paso-card-body">
+          <ul>
+            <li>Quién es Dios — el evangelio explicado con claridad</li>
+            <li>Historia y visión de Mundo de Fe</li>
+            <li>Lo que creemos — declaración de fe</li>
+            <li>Cómo hacerse miembro de la familia</li>
+          </ul>
+          <div class="paso-resource"><strong>Material:</strong> A definir por los pastores · <strong>Recurso digital:</strong> Plan de lectura bíblica asignado · <strong>Lo enseña:</strong> Pastor Otoniel Rincón</div>
+        </div>
+      </div>
+
+      <div class="paso-card">
+        <div class="paso-card-header p2">
+          <div class="paso-num">02</div>
+          <h3>Encuentra Libertad</h3>
+          <p>"Rompe ciclos. Sana heridas."</p>
+        </div>
+        <div class="paso-card-body">
+          <ul>
+            <li>Identidad en Cristo — quién eres, no lo que hiciste</li>
+            <li>Cómo romper ciclos y ataduras espirituales</li>
+            <li>Hábitos espirituales: oración, Biblia, ayuno</li>
+            <li>Bautismo en agua — el siguiente paso de fe</li>
+          </ul>
+          <div class="paso-resource"><strong>Material:</strong> A definir por los pastores · <strong>Recurso digital:</strong> Plan de lectura bíblica asignado · <strong>Lo enseña:</strong> Pastor o líder capacitado</div>
+        </div>
+      </div>
+
+      <div class="paso-card">
+        <div class="paso-card-header p3">
+          <div class="paso-num">03</div>
+          <h3>Crece en Comunidad</h3>
+          <p>"La fe se vive mejor en familia"</p>
+        </div>
+        <div class="paso-card-body">
+          <ul>
+            <li>Evaluación de dones espirituales — Perfil de Propósito</li>
+            <li>Por qué los grupos pequeños cambian vidas</li>
+            <li>Conexión a un Grupo de Vida en la misma noche</li>
+            <li>Cómo vivir la comunidad de lunes a sábado</li>
+          </ul>
+          <div class="paso-resource"><strong>Material:</strong> A definir por los pastores · <strong>Evaluación de dones:</strong> Ver documento anexo · <strong>Lo enseña:</strong> Líder de Grupos</div>
+        </div>
+      </div>
+
+      <div class="paso-card">
+        <div class="paso-card-header p4">
+          <div class="paso-num">04</div>
+          <h3>Haz la Diferencia</h3>
+          <p>"Fuiste creado con un propósito"</p>
+        </div>
+        <div class="paso-card-body">
+          <ul>
+            <li>Todos los ministerios del Equipo de Impacto presentados</li>
+            <li>Cómo compartir tu fe con alguien más</li>
+            <li>Misión local y global — impacto más allá de las 4 paredes</li>
+            <li>Firma del compromiso e inscripción al equipo</li>
+          </ul>
+          <div class="paso-resource"><strong>Material:</strong> A definir por los pastores · <strong>Evaluación de llamado:</strong> Ver documento anexo · <strong>Lo enseña:</strong> Pastor Otoniel Rincón</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey-note" style="margin-top:24px">
+      <span class="journey-note-icon">📌</span>
+      <p>En Mundo de Fe los Pasos se ofrecen <strong>una vez al mes</strong>, el primer domingo de la noche. El ciclo completo toma 4 meses. <strong>Siempre incluimos cena y cuidado de niños</strong> — nadie debe elegir entre crecer espiritualmente y sus responsabilidades familiares.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     PAGE 8 — HOJA DE SEGUIMIENTO
+     ══════════════════════════════ -->
+<div class="page">
+  <div class="doc-page">
+    <div class="page-header">
+      <span class="page-header-logo"><img src="images/logo.png" alt="" class="header-logo-img" onerror="this.style.display='none'" />MUNDO DE FE <span>SANTO DOMINGO</span></span>
+      <span class="page-header-num">07</span>
+    </div>
+
+    <span class="section-eyebrow">Herramienta Operativa</span>
+    <h2 class="section-title">Hoja de <em>Seguimiento</em></h2>
+    <p class="section-lead">Esta es la herramienta central de nuestro equipo en Mundo de Fe. Una fila por cada visitante. Se actualiza después de cada contacto y se revisa cada lunes sin excepción.</p>
+
+    <div style="background:rgba(200,150,60,0.08);border:1px solid rgba(200,150,60,0.25);border-radius:8px;padding:14px 20px;margin-bottom:20px;display:flex;align-items:center;gap:14px;">
+      <span style="font-size:18px;">📱</span>
+      <div>
+        <p style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:3px;">Formulario Digital</p>
+        <p style="font-size:12px;color:var(--gray2);">Cada visitante llena el formulario en <strong style="color:var(--navy);">mundodefesd.churchcenter.com/people/forms/226294</strong> — los datos llegan automáticamente a Planning Center People.</p>
+      </div>
+    </div>
+
+    <div class="tracking-header">
+      <div class="tracking-field">
+        <label>Semana del</label>
+        <span style="display:block;height:16px;"></span>
+      </div>
+      <div class="tracking-field">
+        <label>Coordinador responsable</label>
+        <span style="display:block;height:16px;"></span>
+      </div>
+      <div class="tracking-field">
+        <label>Total visitantes esta semana</label>
+        <span style="display:block;height:16px;"></span>
+      </div>
+    </div>
+
+    <table class="tracking-table">
+      <thead>
+        <tr>
+          <th style="width:120px">Nombre</th>
+          <th style="width:90px">WhatsApp</th>
+          <th style="width:65px">Cómo llegó</th>
+          <th style="width:50px" class="check-col">Form<br/>PC ✓</th>
+          <th style="width:50px" class="check-col">Msg<br/>Hora 2</th>
+          <th style="width:50px" class="check-col">Llamada<br/>Día 1</th>
+          <th style="width:50px" class="check-col">Msg<br/>Día 3</th>
+          <th style="width:50px" class="check-col">Msg<br/>Día 6</th>
+          <th style="width:80px">Etapa</th>
+          <th>Próximo paso</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>María González</td>
+          <td>809-555-0001</td>
+          <td>Instagram</td>
+          <td class="check-col">✓</td>
+          <td class="check-col">✓</td>
+          <td class="check-col">✓</td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td><span class="stage-pill pill-contact">Contactado</span></td>
+          <td>Llamó el lunes, interesada. Invitar a Soy Nuevo.</td>
+        </tr>
+        <tr>
+          <td></td><td></td><td></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td><span class="stage-pill pill-visit">Visitante</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td><td></td><td></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td><span class="stage-pill pill-visit">Visitante</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td><td></td><td></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td><span class="stage-pill pill-visit">Visitante</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td><td></td><td></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td><span class="stage-pill pill-visit">Visitante</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td><td></td><td></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td><span class="stage-pill pill-visit">Visitante</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td><td></td><td></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td class="check-col"><span class="check-circle"></span></td>
+          <td><span class="stage-pill pill-visit">Visitante</span></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tracking-instructions">
+      <h4>Instrucciones de uso</h4>
+      <ul>
+        <li>Añade una fila por cada visitante nuevo ese domingo</li>
+        <li>Marca ✓ cuando el contacto fue completado</li>
+        <li>Deja la celda vacía si aún está pendiente</li>
+        <li>Actualiza la etapa después de cada interacción</li>
+        <li>Escribe el próximo paso concreto en la última columna</li>
+        <li>Lleva esta hoja a la reunión del lunes</li>
+        <li>Archivo: una hoja nueva por cada semana del año</li>
+        <li>Las filas en rojo = urgente, sin contacto en 48 horas</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     PAGE 9 — LAS MÉTRICAS
+     ══════════════════════════════ -->
+<div class="page">
+  <div class="doc-page">
+    <div class="page-header">
+      <span class="page-header-logo"><img src="images/logo.png" alt="" class="header-logo-img" onerror="this.style.display='none'" />MUNDO DE FE <span>SANTO DOMINGO</span></span>
+      <span class="page-header-num">08</span>
+    </div>
+
+    <span class="section-eyebrow">Lo que medimos en Mundo de Fe</span>
+    <h2 class="section-title">No asistencia —<br/><em>transformación</em></h2>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <h3>Tasa de 2da visita</h3>
+        <span class="how">Cómo medirlo — Hoja de seguimiento semanal</span>
+        <p>De cada 10 visitantes nuevos, ¿cuántos regresan un segundo domingo? Esta es la métrica más importante de todo el sistema.</p>
+        <span class="target">Meta: 3 de cada 10 (33%)</span>
+      </div>
+      <div class="metric-card">
+        <h3>Tasa de seguimiento</h3>
+        <span class="how">Cómo medirlo — Columnas completas en hoja</span>
+        <p>¿Qué porcentaje de visitantes recibió los 4 contactos en los primeros 7 días? Si este número baja, todo lo demás baja.</p>
+        <span class="target">Meta: 100% — sin excepciones</span>
+      </div>
+      <div class="metric-card">
+        <h3>Completación de Pasos</h3>
+        <span class="how">Cómo medirlo — Registro de asistencia por clase</span>
+        <p>¿Cuántas personas comenzaron el Paso 1 y llegaron hasta el Paso 4? El punto de deserción más común está entre Paso 2 y 3.</p>
+        <span class="target">Meta: 70%+ completar los 4 pasos</span>
+      </div>
+      <div class="metric-card">
+        <h3>% en Grupos de Vida</h3>
+        <span class="how">Cómo medirlo — Lista de grupos actualizada</span>
+        <p>Una persona en un grupo permanece. Una persona solo en el servicio se va. Este número define la salud real de la iglesia.</p>
+        <span class="target">Meta: 60%+ de los miembros en un grupo</span>
+      </div>
+      <div class="metric-card">
+        <h3>% sirviendo</h3>
+        <span class="how">Cómo medirlo — Lista del Equipo de Impacto</span>
+        <p>¿Qué porcentaje de los adultos sirve activamente en un ministerio? La membresía sin servicio produce consumidores, no discípulos.</p>
+        <span class="target">Meta: 33% de adultos sirviendo</span>
+      </div>
+      <div class="metric-card">
+        <h3>Multiplicadores activos</h3>
+        <span class="how">Cómo medirlo — Árbol de discipulado</span>
+        <p>¿Cuántas personas están discipulando activamente a alguien más? Esta es la única métrica que garantiza el crecimiento sostenible.</p>
+        <span class="target">Meta: 1 multiplicador por cada 10 miembros</span>
+      </div>
+    </div>
+
+    <div class="review-section">
+      <h3>La reunión del lunes en Mundo de Fe — 30 minutos que lo cambian todo</h3>
+      <div class="review-grid">
+        <div class="review-item">
+          <h4>Revisar (10 min)</h4>
+          <ul>
+            <li>¿Cuántos visitantes llegaron?</li>
+            <li>¿Todos fueron contactados?</li>
+            <li>¿Alguno sin respuesta? ¿Qué haremos?</li>
+            <li>¿Alguien en crisis que necesita al pastor?</li>
+          </ul>
+        </div>
+        <div class="review-item">
+          <h4>Celebrar (10 min)</h4>
+          <ul>
+            <li>¿Quién regresó por 2da vez?</li>
+            <li>¿Quién se inscribió a un Paso?</li>
+            <li>¿Quién se unió a un grupo?</li>
+            <li>¿Quién comenzó a servir?</li>
+          </ul>
+        </div>
+        <div class="review-item">
+          <h4>Planear (10 min)</h4>
+          <ul>
+            <li>¿Quién invitaremos a Soy Nuevo?</li>
+            <li>¿Quién al próximo Paso esta semana?</li>
+            <li>¿A qué grupo conectamos a [persona]?</li>
+            <li>¿Qué necesita atención especial?</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════
+     PAGE 10 — CONTRATAPA
+     ══════════════════════════════ -->
+<div class="page">
+  <div class="back-cover">
+    <div class="back-cover-accent"></div>
+
+    <p class="back-cover-manifesto">
+      "En Mundo de Fe Santo Domingo<br/>
+      cada persona merece <em>ser conocida</em>,<br/>
+      <em>ser acompañada</em> en su camino,<br/>
+      y encontrar el <em>propósito</em> para el que fue creada."
+    </p>
+
+    <div class="back-cover-divider"></div>
+
+    <p class="back-cover-verse">
+      "Id, y haced discípulos a todas las naciones..."
+    </p>
+    <p class="back-cover-ref">Mateo 28:19</p>
+
+    <div class="back-cover-church">
+      <img src="images/logo.png" alt="Mundo de Fe Santo Domingo" class="back-cover-logo-img"
+        onerror="this.style.display='none'" />
+      <p class="back-cover-church-name">MUNDO DE FE <span>SANTO DOMINGO</span></p>
+      <p class="back-cover-sub">Pastor Otoniel Rincón · Pastora Jhanna Báez</p>
+      <div class="back-cover-contact">
+        <span>📱 <strong>@mundodefesd</strong></span>
+        <span>·</span>
+        <span>📘 <strong>@MundodefeSD</strong></span>
+        <span>·</span>
+        <span>🌐 <strong>mundodefesd.com</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

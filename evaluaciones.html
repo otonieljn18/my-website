@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Evaluaciones y Tiempos — Mundo de Fe Santo Domingo</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --navy:    #0f1b35;
+  --gold:    #c8963c;
+  --gold-md: #e8b84b;
+  --gold-lt: #f5d78e;
+  --cream:   #f7f4ef;
+  --white:   #ffffff;
+  --gray2:   #4b5563;
+  --gray3:   #9ca3af;
+  --gray4:   #e5e7eb;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size: 16px; }
+body { font-family:'Inter',sans-serif; background:var(--white); color:var(--navy); -webkit-font-smoothing:antialiased; line-height:1.6; }
+@page { size: Letter; margin: 0; }
+@media print {
+  .page { page-break-after:always; page-break-inside:avoid; }
+  .no-print { display:none; }
+  body { background:white; }
+}
+.page { width:816px; min-height:1056px; margin:0 auto 48px; position:relative; overflow:hidden; box-shadow:0 4px 40px rgba(0,0,0,0.12); }
+.doc-page { padding:56px 72px; min-height:1056px; display:flex; flex-direction:column; }
+
+/* Header */
+.page-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:40px; padding-bottom:20px; border-bottom:1px solid var(--gray4); }
+.page-header-logo { display:flex; align-items:center; gap:10px; }
+.page-header-logo img { height:26px; width:auto; filter:brightness(0); opacity:0.6; }
+.page-header-logo span { font-family:'Montserrat',sans-serif; font-size:10px; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:var(--navy); }
+.page-header-logo span em { color:var(--gold); font-style:normal; }
+.page-header-tag { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--gray3); }
+
+/* Typography */
+.eyebrow { font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:10px; }
+.section-title { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:600; color:var(--navy); line-height:1.05; margin-bottom:8px; }
+.section-title em { font-style:italic; color:var(--gold); }
+.section-lead { font-size:14px; color:var(--gray2); line-height:1.8; margin-bottom:32px; max-width:620px; }
+
+/* Cover */
+.cover { background:var(--navy); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:80px 60px; min-height:1056px; position:relative; }
+.cover-accent { position:absolute; top:0; left:0; right:0; height:6px; background:linear-gradient(90deg,var(--gold),var(--gold-md),var(--gold-lt),var(--gold-md),var(--gold)); }
+.cover-accent-b { position:absolute; bottom:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.cover img { height:80px; width:auto; filter:brightness(0) invert(1); margin-bottom:40px; display:block; }
+.cover-eyebrow { font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold-md); margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+.cover-eyebrow span { width:40px; height:1px; background:linear-gradient(90deg,transparent,var(--gold-md)); display:block; }
+.cover-eyebrow span:last-child { background:linear-gradient(90deg,var(--gold-md),transparent); }
+.cover h1 { font-family:'Cormorant Garamond',serif; font-size:60px; font-weight:300; color:var(--white); line-height:0.95; margin-bottom:12px; }
+.cover h1 em { font-style:italic; color:var(--gold-md); }
+.cover-sub { font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:56px; }
+.cover-desc { font-family:'Cormorant Garamond',serif; font-size:19px; font-weight:300; font-style:italic; color:rgba(255,255,255,0.6); max-width:480px; line-height:1.7; margin-bottom:72px; }
+.cover-footer { border-top:1px solid rgba(255,255,255,0.1); padding-top:36px; width:100%; }
+.cover-church { font-family:'Montserrat',sans-serif; font-size:13px; font-weight:800; letter-spacing:0.15em; text-transform:uppercase; color:var(--white); margin-bottom:6px; }
+.cover-church em { color:var(--gold-md); font-style:normal; }
+.cover-pastors { font-size:12px; color:rgba(255,255,255,0.4); font-style:italic; }
+.cover-doc-label { position:absolute; top:32px; right:40px; font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.2); }
+.cover-doc-label span { display:block; font-size:14px; font-weight:800; color:rgba(255,255,255,0.12); font-family:'Cormorant Garamond',serif; letter-spacing:0; }
+
+/* Timeline master */
+.timeline-master { display:flex; flex-direction:column; gap:0; }
+.tl-item { display:grid; grid-template-columns:100px 28px 1fr; gap:0; align-items:stretch; }
+.tl-left { text-align:right; padding:0 16px 0 0; display:flex; flex-direction:column; justify-content:flex-start; padding-top:20px; }
+.tl-time { font-family:'Montserrat',sans-serif; font-size:10px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--navy); line-height:1.2; }
+.tl-duration { font-size:10px; color:var(--gray3); margin-top:3px; font-style:italic; }
+.tl-center { display:flex; flex-direction:column; align-items:center; position:relative; }
+.tl-dot { width:14px; height:14px; border-radius:50%; background:var(--gold); border:2px solid var(--white); box-shadow:0 0 0 2px var(--gold); flex-shrink:0; margin-top:22px; z-index:1; }
+.tl-dot.alt { background:var(--navy); box-shadow:0 0 0 2px var(--navy); }
+.tl-line { width:2px; flex:1; background:var(--gray4); }
+.tl-right { padding:16px 0 16px 20px; }
+.tl-right h4 { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--navy); margin-bottom:4px; }
+.tl-right p { font-size:12px; color:var(--gray2); line-height:1.6; }
+.tl-badge { display:inline-flex; align-items:center; gap:6px; margin-top:8px; font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:3px 10px; border-radius:20px; }
+.badge-gold { background:rgba(200,150,60,0.12); color:#a07820; }
+.badge-navy { background:rgba(15,27,53,0.1); color:var(--navy); }
+.badge-green { background:rgba(5,150,105,0.1); color:#047857; }
+.badge-red { background:rgba(239,68,68,0.1); color:#dc2626; }
+
+/* Paso phases */
+.paso-phases { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:28px; }
+.paso-phase { border-radius:10px; overflow:hidden; border:1px solid var(--gray4); }
+.paso-phase-header { padding:16px 20px; }
+.ph1 { background:linear-gradient(135deg,#0f1b35,#1a2a5e); }
+.ph2 { background:linear-gradient(135deg,#2a0a3a,#4a1a5e); }
+.ph3 { background:linear-gradient(135deg,#0a2040,#1a3a6e); }
+.ph4 { background:linear-gradient(135deg,#062a1a,#0a4a2a); }
+.paso-phase-header .pnum { font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:700; color:rgba(255,255,255,0.15); line-height:1; margin-bottom:-6px; }
+.paso-phase-header h4 { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:600; color:var(--white); margin-bottom:2px; }
+.paso-phase-header .ptiming { font-size:10px; color:rgba(255,255,255,0.45); font-family:'Montserrat',sans-serif; font-weight:600; letter-spacing:0.08em; }
+.paso-phase-body { padding:14px 18px; background:var(--white); }
+.paso-phase-body .timing-row { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid var(--gray4); }
+.paso-phase-body .timing-row:last-child { border-bottom:none; }
+.timing-label { font-size:12px; color:var(--gray2); }
+.timing-val { font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.05em; color:var(--navy); }
+
+/* Evaluation forms */
+.eval-header { background:var(--navy); border-radius:10px 10px 0 0; padding:20px 24px; }
+.eval-header h3 { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--white); margin-bottom:4px; }
+.eval-header p { font-size:11px; color:rgba(255,255,255,0.45); font-family:'Montserrat',sans-serif; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; }
+.eval-body { border:1px solid var(--gray4); border-top:none; border-radius:0 0 10px 10px; padding:20px 24px; margin-bottom:20px; }
+.eval-info-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin-bottom:20px; }
+.eval-field { border-bottom:1px solid var(--navy); padding-bottom:4px; }
+.eval-field label { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--gray3); display:block; margin-bottom:2px; }
+.eval-field .line { height:14px; }
+.questions { display:flex; flex-direction:column; gap:12px; }
+.question { }
+.question .q-text { font-size:13px; color:var(--navy); font-weight:500; margin-bottom:6px; line-height:1.5; }
+.question .q-text .q-num { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:700; color:var(--gold); margin-right:6px; }
+.answer-line { border-bottom:1px solid var(--gray4); height:22px; width:100%; display:block; }
+.answer-line + .answer-line { margin-top:4px; }
+.scale-row { display:flex; gap:6px; align-items:center; margin-top:6px; }
+.scale-opt { width:28px; height:28px; border-radius:50%; border:1.5px solid var(--gray4); display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; color:var(--gray3); flex-shrink:0; }
+.scale-label { font-size:10px; color:var(--gray3); font-style:italic; }
+.yes-no-row { display:flex; gap:16px; margin-top:6px; }
+.yn-opt { display:flex; align-items:center; gap:6px; }
+.yn-circle { width:14px; height:14px; border-radius:50%; border:1.5px solid var(--gray3); flex-shrink:0; }
+.yn-opt span { font-size:12px; color:var(--gray2); }
+.commitment-box { background:var(--cream); border-radius:8px; padding:16px 20px; border-left:3px solid var(--gold); margin-top:16px; }
+.commitment-box p { font-family:'Cormorant Garamond',serif; font-size:15px; font-style:italic; color:var(--navy); line-height:1.6; margin-bottom:12px; }
+.sign-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:8px; }
+.sign-field { border-bottom:1px solid var(--navy); padding-bottom:4px; }
+.sign-field label { font-family:'Montserrat',sans-serif; font-size:9px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--gray3); display:block; margin-bottom:2px; }
+.sign-field .line { height:14px; }
+
+/* Progress calendar */
+.calendar-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:24px; }
+.cal-month { border:1px solid var(--gray4); border-radius:8px; overflow:hidden; }
+.cal-month-header { background:var(--navy); padding:10px 14px; }
+.cal-month-header h5 { font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold-md); margin-bottom:2px; }
+.cal-month-header p { font-size:11px; color:rgba(255,255,255,0.5); }
+.cal-month-body { padding:12px 14px; }
+.cal-item { display:flex; align-items:center; gap:8px; padding:5px 0; border-bottom:1px solid var(--gray4); }
+.cal-item:last-child { border-bottom:none; }
+.cal-dot { width:8px; height:8px; border-radius:50%; background:var(--gold); flex-shrink:0; }
+.cal-dot.empty { background:var(--gray4); }
+.cal-item span { font-size:11px; color:var(--gray2); }
+
+/* Milestones checklist */
+.milestones-list { display:flex; flex-direction:column; gap:0; border:1px solid var(--gray4); border-radius:10px; overflow:hidden; }
+.milestone-item { display:flex; align-items:flex-start; gap:16px; padding:16px 20px; border-bottom:1px solid var(--gray4); }
+.milestone-item:last-child { border-bottom:none; }
+.milestone-item:nth-child(even) { background:var(--cream); }
+.milestone-check { width:20px; height:20px; border-radius:4px; border:1.5px solid var(--gray3); flex-shrink:0; margin-top:1px; }
+.milestone-content h5 { font-family:'Cormorant Garamond',serif; font-size:16px; font-weight:600; color:var(--navy); margin-bottom:2px; }
+.milestone-content p { font-size:12px; color:var(--gray2); line-height:1.5; }
+.milestone-meta { margin-left:auto; text-align:right; flex-shrink:0; }
+.milestone-stage { font-family:'Montserrat',sans-serif; font-size:8px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:2px 8px; border-radius:20px; display:inline-block; }
+.ms-gold { background:rgba(200,150,60,0.12); color:#a07820; }
+.ms-blue { background:rgba(37,99,235,0.1); color:#1d4ed8; }
+.ms-purple { background:rgba(124,58,237,0.1); color:#6d28d9; }
+.ms-green { background:rgba(5,150,105,0.1); color:#047857; }
+.ms-navy { background:rgba(15,27,53,0.1); color:var(--navy); }
+.milestone-date { font-size:10px; color:var(--gray3); margin-top:4px; font-style:italic; }
+
+/* Print bar */
+.print-bar { position:fixed; top:0; left:0; right:0; z-index:100; background:var(--navy); padding:12px 40px; display:flex; align-items:center; justify-content:space-between; }
+.print-bar-title { font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.6); }
+.print-bar-title em { color:var(--gold-md); font-style:normal; }
+.print-btn { background:linear-gradient(135deg,var(--gold),var(--gold-md)); color:var(--navy); border:none; cursor:pointer; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; padding:10px 28px; border-radius:3px; }
+body { padding-top:56px; }
+@media print { .print-bar { display:none; } body { padding-top:0; } .page { box-shadow:none; margin-bottom:0; } }
+</style>
+</head>
+<body>
+
+<!-- PRINT BAR -->
+<div class="print-bar no-print">
+  <span class="print-bar-title">Evaluaciones y Tiempos — <em>Mundo de Fe Santo Domingo</em></span>
+  <button class="print-btn" onclick="window.print()">⊞ Imprimir / Guardar PDF</button>
+</div>
+
+
+<!-- ═══════════════════════════════
+     PORTADA
+     ═══════════════════════════════ -->
+<div class="page">
+  <div class="cover">
+    <div class="cover-accent"></div>
+    <div class="cover-accent-b"></div>
+    <div class="cover-doc-label">Documento Anexo<span>02</span></div>
+
+    <img src="images/logo.png" alt="Mundo de Fe" onerror="this.style.display='none'" />
+
+    <div class="cover-eyebrow">
+      <span></span>Anexo a La Ruta de Discipulado<span></span>
+    </div>
+    <h1>Evaluaciones<br/>y <em>Tiempos</em></h1>
+    <p class="cover-sub">Herramientas de Seguimiento Espiritual</p>
+    <p class="cover-desc">Formularios de evaluación, calendario de Pasos de Fe y registro de hitos espirituales para cada persona en la Ruta de Fe.</p>
+    <div class="cover-footer">
+      <p class="cover-church">MUNDO DE FE <em>SANTO DOMINGO</em></p>
+      <p class="cover-pastors">Pastor Otoniel Rincón · Pastora Jhanna Báez · 2026</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     PAGE 1 — CALENDARIO Y TIEMPOS
+     ═══════════════════════════════ -->
+<div class="page">
+  <div class="doc-page">
+    <div class="page-header">
+      <div class="page-header-logo">
+        <img src="images/logo.png" alt="" onerror="this.style.display='none'" />
+        <span>MUNDO DE FE <em>SANTO DOMINGO</em></span>
+      </div>
+      <span class="page-header-tag">Tiempos · 01</span>
+    </div>
+
+    <span class="eyebrow">El Calendario</span>
+    <h2 class="section-title">Tiempos ideales de la<br/><em>Ruta de Fe</em></h2>
+    <p class="section-lead">Estos tiempos son una guía pastoral — no una regla rígida. Cada persona tiene su propio ritmo. Lo importante es que siempre haya un próximo paso claro y un líder caminando junto a ellos.</p>
+
+    <!-- Master Timeline -->
+    <div class="timeline-master">
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <span class="tl-time">Domingo</span>
+          <span class="tl-duration">Hora 0</span>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <h4>Primera Visita</h4>
+          <p>La persona llega al servicio. El equipo de hospitalidad la recibe, la acompaña y le comparte el QR del formulario de Planning Center. El formulario se llena antes de salir.</p>
+          <span class="tl-badge badge-gold">Formulario PC completado ese día</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <span class="tl-time">Hora 2</span>
+          <span class="tl-duration">Mismo día</span>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <h4>Primer WhatsApp</h4>
+          <p>Mensaje de bienvenida del Coordinador de Conexión. Cálido, corto, con el nombre de la persona. Termina con una pregunta.</p>
+          <span class="tl-badge badge-navy">Coordinador de Conexión</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <span class="tl-time">Día 1</span>
+          <span class="tl-duration">Lunes</span>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <h4>Llamada Personal</h4>
+          <p>El líder asignado llama. Escucha más de lo que habla. No invita a nada todavía — solo conecta.</p>
+          <span class="tl-badge badge-navy">Líder de Seguimiento</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <span class="tl-time">Día 3</span>
+          <span class="tl-duration">Miércoles</span>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <h4>WhatsApp de Conexión</h4>
+          <p>Comparte un versículo o frase del sermón del domingo. Termina con una pregunta espiritual sencilla.</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <span class="tl-time">Día 6</span>
+          <span class="tl-duration">Sábado</span>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <h4>Invitación al Domingo</h4>
+          <p>Mensaje breve recordando el servicio. Que sientan que son esperados, no convocados.</p>
+          <span class="tl-badge badge-gold">Meta: lograr la 2da visita</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <span class="tl-time">Semana 2</span>
+          <span class="tl-duration">Si regresan</span>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <h4>Invitación a Soy Nuevo</h4>
+          <p>Después del servicio, el líder presenta a la persona con el pastor e invita personalmente a la clase Soy Nuevo.</p>
+          <span class="tl-badge badge-green">85% de los que regresan se quedan</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <span class="tl-time">Semana 3–4</span>
+          <span class="tl-duration">1 mes</span>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <h4>Soy Nuevo + Invitación a Paso 1</h4>
+          <p>La persona asiste a Soy Nuevo. Al finalizar se le entrega la fecha del próximo Paso 1 y se confirma su inscripción en Planning Center.</p>
+          <span class="tl-badge badge-navy">Etapa: ORIENTADO</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <span class="tl-time">Mes 1–4</span>
+          <span class="tl-duration">4 meses</span>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <h4>Pasos de Fe 1, 2, 3 y 4</h4>
+          <p>Un Paso por mes. Primer domingo de la noche. Cena y cuidado de niños incluidos. Cada Paso tiene su evaluación (ver páginas siguientes).</p>
+          <span class="tl-badge badge-navy">Etapa: EN PASOS DE FE</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <span class="tl-time">Mes 3</span>
+          <span class="tl-duration">Con Paso 3</span>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <h4>Conexión a Grupo de Vida</h4>
+          <p>Durante el Paso 3, la persona se conecta a un Grupo de Vida esa misma noche. El líder del grupo la recibe antes de que salga del salón.</p>
+          <span class="tl-badge badge-green">Etapa: CONECTADO</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <span class="tl-time">Mes 4</span>
+          <span class="tl-duration">Con Paso 4</span>
+        </div>
+        <div class="tl-center"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <h4>Inscripción al Equipo de Impacto</h4>
+          <p>Al completar el Paso 4, la persona firma su compromiso y es conectada a un ministerio antes de salir del salón.</p>
+          <span class="tl-badge badge-green">Etapa: SIRVIENDO</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <span class="tl-time">Mes 6–12</span>
+          <span class="tl-duration">6–12 meses</span>
+        </div>
+        <div class="tl-center"><div class="tl-dot alt"></div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <h4>Track de Liderazgo</h4>
+          <p>El pastor identifica a personas con potencial de liderazgo. Conversación personal. Invitación al proceso de formación de líderes. Fechas a definir por los pastores.</p>
+          <span class="tl-badge badge-navy">Etapa: LIDERANDO</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <span class="tl-time">Año 2+</span>
+          <span class="tl-duration">En adelante</span>
+        </div>
+        <div class="tl-center"><div class="tl-dot alt"></div></div>
+        <div class="tl-right">
+          <h4>Multiplicador Activo</h4>
+          <p>Discipula activamente a alguien más. El ciclo completo se reproduce. El Árbol de Discipulado de Mundo de Fe crece una generación más.</p>
+          <span class="tl-badge badge-green">Etapa: MULTIPLICANDO</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     PAGE 2 — CALENDARIO DE PASOS
+     ═══════════════════════════════ -->
+<div class="page">
+  <div class="doc-page">
+    <div class="page-header">
+      <div class="page-header-logo">
+        <img src="images/logo.png" alt="" onerror="this.style.display='none'" />
+        <span>MUNDO DE FE <em>SANTO DOMINGO</em></span>
+      </div>
+      <span class="page-header-tag">Tiempos · 02</span>
+    </div>
+
+    <span class="eyebrow">El Ciclo Mensual</span>
+    <h2 class="section-title">Calendario de<br/><em>Pasos de Fe</em></h2>
+    <p class="section-lead">Los Pasos se repiten cada mes en ciclo continuo. Cualquier persona puede comenzar en cualquier mes y completar los 4 Pasos en 4 meses consecutivos.</p>
+
+    <div class="paso-phases">
+      <div class="paso-phase">
+        <div class="paso-phase-header ph1">
+          <div class="pnum">01</div>
+          <h4>Conoce a Dios</h4>
+          <p class="ptiming">1er domingo · Noche</p>
+        </div>
+        <div class="paso-phase-body">
+          <div class="timing-row"><span class="timing-label">Duración de la sesión</span><span class="timing-val">90 minutos</span></div>
+          <div class="timing-row"><span class="timing-label">Cena incluida</span><span class="timing-val">Sí — 30 min antes</span></div>
+          <div class="timing-row"><span class="timing-label">Cuidado de niños</span><span class="timing-val">Sí</span></div>
+          <div class="timing-row"><span class="timing-label">Evaluación al final</span><span class="timing-val">Sí — ver pág. 4</span></div>
+          <div class="timing-row"><span class="timing-label">Inscripción en PC</span><span class="timing-val">Antes del evento</span></div>
+          <div class="timing-row"><span class="timing-label">Siguiente invitación</span><span class="timing-val">Esa misma noche</span></div>
+        </div>
+      </div>
+      <div class="paso-phase">
+        <div class="paso-phase-header ph2">
+          <div class="pnum">02</div>
+          <h4>Encuentra Libertad</h4>
+          <p class="ptiming">1er domingo · Noche</p>
+        </div>
+        <div class="paso-phase-body">
+          <div class="timing-row"><span class="timing-label">Duración de la sesión</span><span class="timing-val">90 minutos</span></div>
+          <div class="timing-row"><span class="timing-label">Cena incluida</span><span class="timing-val">Sí — 30 min antes</span></div>
+          <div class="timing-row"><span class="timing-label">Cuidado de niños</span><span class="timing-val">Sí</span></div>
+          <div class="timing-row"><span class="timing-label">Evaluación al final</span><span class="timing-val">Sí — ver pág. 5</span></div>
+          <div class="timing-row"><span class="timing-label">Bautismo ofrecido</span><span class="timing-val">Si aplica</span></div>
+          <div class="timing-row"><span class="timing-label">Siguiente invitación</span><span class="timing-val">Esa misma noche</span></div>
+        </div>
+      </div>
+      <div class="paso-phase">
+        <div class="paso-phase-header ph3">
+          <div class="pnum">03</div>
+          <h4>Crece en Comunidad</h4>
+          <p class="ptiming">1er domingo · Noche</p>
+        </div>
+        <div class="paso-phase-body">
+          <div class="timing-row"><span class="timing-label">Duración de la sesión</span><span class="timing-val">90 minutos</span></div>
+          <div class="timing-row"><span class="timing-label">Cena incluida</span><span class="timing-val">Sí — 30 min antes</span></div>
+          <div class="timing-row"><span class="timing-label">Cuidado de niños</span><span class="timing-val">Sí</span></div>
+          <div class="timing-row"><span class="timing-label">Evaluación de dones</span><span class="timing-val">Sí — ver pág. 6</span></div>
+          <div class="timing-row"><span class="timing-label">Conexión a Grupo</span><span class="timing-val">Esa misma noche</span></div>
+          <div class="timing-row"><span class="timing-label">Siguiente invitación</span><span class="timing-val">Esa misma noche</span></div>
+        </div>
+      </div>
+      <div class="paso-phase">
+        <div class="paso-phase-header ph4">
+          <div class="pnum">04</div>
+          <h4>Haz la Diferencia</h4>
+          <p class="ptiming">1er domingo · Noche</p>
+        </div>
+        <div class="paso-phase-body">
+          <div class="timing-row"><span class="timing-label">Duración de la sesión</span><span class="timing-val">90 minutos</span></div>
+          <div class="timing-row"><span class="timing-label">Cena incluida</span><span class="timing-val">Sí — 30 min antes</span></div>
+          <div class="timing-row"><span class="timing-label">Cuidado de niños</span><span class="timing-val">Sí</span></div>
+          <div class="timing-row"><span class="timing-label">Evaluación de llamado</span><span class="timing-val">Sí — ver pág. 7</span></div>
+          <div class="timing-row"><span class="timing-label">Inscripción al equipo</span><span class="timing-val">Esa misma noche</span></div>
+          <div class="timing-row"><span class="timing-label">Celebración de cierre</span><span class="timing-val">Con todos los líderes</span></div>
+        </div>
+      </div>
+    </div>
+
+    <span class="eyebrow" style="margin-top:8px">Ejemplo de Año</span>
+    <div class="calendar-grid">
+      <div class="cal-month">
+        <div class="cal-month-header"><h5>Enero</h5><p>Paso 1</p></div>
+        <div class="cal-month-body">
+          <div class="cal-item"><div class="cal-dot"></div><span>Domingo 1 — Paso 1</span></div>
+          <div class="cal-item"><div class="cal-dot empty"></div><span>Domingos regulares</span></div>
+          <div class="cal-item"><div class="cal-dot empty"></div><span>Grupos de Vida</span></div>
+        </div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-header"><h5>Febrero</h5><p>Paso 2</p></div>
+        <div class="cal-month-body">
+          <div class="cal-item"><div class="cal-dot"></div><span>Domingo 1 — Paso 2</span></div>
+          <div class="cal-item"><div class="cal-dot empty"></div><span>Domingos regulares</span></div>
+          <div class="cal-item"><div class="cal-dot empty"></div><span>Grupos de Vida</span></div>
+        </div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-header"><h5>Marzo</h5><p>Paso 3</p></div>
+        <div class="cal-month-body">
+          <div class="cal-item"><div class="cal-dot"></div><span>Domingo 1 — Paso 3</span></div>
+          <div class="cal-item"><div class="cal-dot"></div><span>Conexión a Grupos</span></div>
+          <div class="cal-item"><div class="cal-dot empty"></div><span>Grupos de Vida</span></div>
+        </div>
+      </div>
+      <div class="cal-month">
+        <div class="cal-month-header"><h5>Abril</h5><p>Paso 4</p></div>
+        <div class="cal-month-body">
+          <div class="cal-item"><div class="cal-dot"></div><span>Domingo 1 — Paso 4</span></div>
+          <div class="cal-item"><div class="cal-dot"></div><span>Inscripción Equipo</span></div>
+          <div class="cal-item"><div class="cal-dot"></div><span>Celebración cierre</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--navy);border-radius:8px;padding:18px 24px;display:flex;gap:16px;align-items:flex-start;">
+      <span style="font-size:18px;flex-shrink:0;">📌</span>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.8);line-height:1.6;">El ciclo se reinicia cada mes. Una persona que llega en <strong style="color:var(--gold-md);font-style:normal;">marzo</strong> puede completar los 4 Pasos en <strong style="color:var(--gold-md);font-style:normal;">junio</strong> — sin esperar a que "empiece el ciclo".</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     PAGE 3 — HITOS ESPIRITUALES
+     ═══════════════════════════════ -->
+<div class="page">
+  <div class="doc-page">
+    <div class="page-header">
+      <div class="page-header-logo">
+        <img src="images/logo.png" alt="" onerror="this.style.display='none'" />
+        <span>MUNDO DE FE <em>SANTO DOMINGO</em></span>
+      </div>
+      <span class="page-header-tag">Evaluaciones · 01</span>
+    </div>
+
+    <span class="eyebrow">Registro Personal</span>
+    <h2 class="section-title">Hitos Espirituales —<br/><em>Registro de Vida</em></h2>
+    <p class="section-lead">Este documento acompaña el perfil de cada persona en Planning Center. Es el registro de los momentos más importantes de su camino de fe en Mundo de Fe. El pastor lo actualiza después de cada hito.</p>
+
+    <div class="eval-info-row" style="margin-bottom:24px;">
+      <div class="eval-field"><label>Nombre completo</label><div class="line"></div></div>
+      <div class="eval-field"><label>Fecha primera visita</label><div class="line"></div></div>
+      <div class="eval-field"><label>Líder asignado</label><div class="line"></div></div>
+    </div>
+
+    <div class="milestones-list">
+      <div class="milestone-item">
+        <div class="milestone-check"></div>
+        <div class="milestone-content">
+          <h5>⭐ Decisión de Fe</h5>
+          <p>La persona tomó la decisión de comenzar una relación con Dios. ¿Cómo fue el momento? ¿Quién estuvo presente?</p>
+        </div>
+        <div class="milestone-meta">
+          <span class="milestone-stage ms-gold">Paso 1</span>
+          <div class="milestone-date">Fecha: ___________</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-check"></div>
+        <div class="milestone-content">
+          <h5>💧 Bautismo en Agua</h5>
+          <p>Primer paso de obediencia pública a Cristo. Fecha y contexto del bautismo en Mundo de Fe.</p>
+        </div>
+        <div class="milestone-meta">
+          <span class="milestone-stage ms-blue">Paso 2</span>
+          <div class="milestone-date">Fecha: ___________</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-check"></div>
+        <div class="milestone-content">
+          <h5>✅ Completó Paso 1 — Conoce a Dios</h5>
+          <p>Comprende quién es Dios y lo que creemos. Tomó el compromiso de ser parte de la familia.</p>
+        </div>
+        <div class="milestone-meta">
+          <span class="milestone-stage ms-gold">Paso 1</span>
+          <div class="milestone-date">Fecha: ___________</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-check"></div>
+        <div class="milestone-content">
+          <h5>🕊️ Completó Paso 2 — Encuentra Libertad</h5>
+          <p>Identificó áreas de atadura y tomó el compromiso de vivir libre en Cristo.</p>
+        </div>
+        <div class="milestone-meta">
+          <span class="milestone-stage ms-purple">Paso 2</span>
+          <div class="milestone-date">Fecha: ___________</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-check"></div>
+        <div class="milestone-content">
+          <h5>🏘️ Se unió a un Grupo de Vida</h5>
+          <p>Conectado a comunidad real. Nombre del grupo y líder que lo recibió.</p>
+        </div>
+        <div class="milestone-meta">
+          <span class="milestone-stage ms-green">Paso 3</span>
+          <div class="milestone-date">Fecha: ___________</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-check"></div>
+        <div class="milestone-content">
+          <h5>🤝 Se unió al Equipo de Impacto</h5>
+          <p>Sirve activamente en un ministerio. ¿En qué área? ¿Quién es su líder de equipo?</p>
+        </div>
+        <div class="milestone-meta">
+          <span class="milestone-stage ms-green">Paso 4</span>
+          <div class="milestone-date">Fecha: ___________</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-check"></div>
+        <div class="milestone-content">
+          <h5>👑 Completó los 4 Pasos de Fe</h5>
+          <p>Celebración con el pastor y el equipo. Reconocimiento en la reunión del lunes.</p>
+        </div>
+        <div class="milestone-meta">
+          <span class="milestone-stage ms-navy">Logro</span>
+          <div class="milestone-date">Fecha: ___________</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-check"></div>
+        <div class="milestone-content">
+          <h5>🌱 Comenzó a discipular a alguien</h5>
+          <p>El proceso se reproduce. ¿A quién está discipulando? El árbol de discipulado crece.</p>
+        </div>
+        <div class="milestone-meta">
+          <span class="milestone-stage ms-navy">Liderazgo</span>
+          <div class="milestone-date">Fecha: ___________</div>
+        </div>
+      </div>
+      <div class="milestone-item">
+        <div class="milestone-check"></div>
+        <div class="milestone-content">
+          <h5>✈️ Primer viaje misionero o servicio externo</h5>
+          <p>Impacto más allá de las cuatro paredes. Lugar, fecha y descripción breve.</p>
+        </div>
+        <div class="milestone-meta">
+          <span class="milestone-stage ms-navy">Misión</span>
+          <div class="milestone-date">Fecha: ___________</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;padding:16px 20px;border:1px solid var(--gray4);border-radius:8px;">
+      <p style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">Notas pastorales</p>
+      <div style="height:60px;border-bottom:1px solid var(--gray4);"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     PAGE 4 — EVALUACIÓN PASO 1
+     ═══════════════════════════════ -->
+<div class="page">
+  <div class="doc-page">
+    <div class="page-header">
+      <div class="page-header-logo">
+        <img src="images/logo.png" alt="" onerror="this.style.display='none'" />
+        <span>MUNDO DE FE <em>SANTO DOMINGO</em></span>
+      </div>
+      <span class="page-header-tag">Evaluaciones · 02</span>
+    </div>
+
+    <span class="eyebrow">Al finalizar el Paso 1</span>
+    <h2 class="section-title">Evaluación — <em>Conoce a Dios</em></h2>
+    <p class="section-lead">Esta evaluación se completa al final de la noche del Paso 1. No es un examen — es una conversación escrita que ayuda al pastor a conocer el estado espiritual de la persona y definir el acompañamiento.</p>
+
+    <div class="eval-header">
+      <h3>Paso 1 · Conoce a Dios</h3>
+      <p>Evaluación personal — Mundo de Fe Santo Domingo</p>
+    </div>
+    <div class="eval-body">
+      <div class="eval-info-row">
+        <div class="eval-field"><label>Nombre</label><div class="line"></div></div>
+        <div class="eval-field"><label>Fecha</label><div class="line"></div></div>
+        <div class="eval-field"><label>¿Primera vez en un Paso?</label>
+          <div class="yes-no-row" style="margin-top:4px;">
+            <div class="yn-opt"><div class="yn-circle"></div><span>Sí</span></div>
+            <div class="yn-opt"><div class="yn-circle"></div><span>No</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="questions">
+        <div class="question">
+          <p class="q-text"><span class="q-num">1.</span>¿Tienes una relación personal con Dios? Cuéntanos cómo está ese camino.</p>
+          <span class="answer-line"></span><span class="answer-line"></span>
+        </div>
+        <div class="question">
+          <p class="q-text"><span class="q-num">2.</span>¿Hubo algo de lo que aprendiste hoy que te marcó o te hizo pensar diferente?</p>
+          <span class="answer-line"></span><span class="answer-line"></span>
+        </div>
+        <div class="question">
+          <p class="q-text"><span class="q-num">3.</span>¿Qué tan cómodo/a te sientes hablando de tu fe con otras personas?</p>
+          <div class="scale-row">
+            <div class="scale-opt">1</div><div class="scale-opt">2</div><div class="scale-opt">3</div><div class="scale-opt">4</div><div class="scale-opt">5</div>
+            <span class="scale-label">1 = Nada cómodo/a · 5 = Muy cómodo/a</span>
+          </div>
+        </div>
+        <div class="question">
+          <p class="q-text"><span class="q-num">4.</span>¿Tienes una petición de oración que quieras compartir con el pastor?</p>
+          <div class="yes-no-row">
+            <div class="yn-opt"><div class="yn-circle"></div><span>Sí (anótala abajo)</span></div>
+            <div class="yn-opt"><div class="yn-circle"></div><span>No por ahora</span></div>
+          </div>
+          <span class="answer-line" style="margin-top:8px;"></span>
+        </div>
+        <div class="question">
+          <p class="q-text"><span class="q-num">5.</span>¿Te gustaría continuar con el Paso 2 el próximo mes?</p>
+          <div class="yes-no-row">
+            <div class="yn-opt"><div class="yn-circle"></div><span>Sí, quiero continuar</span></div>
+            <div class="yn-opt"><div class="yn-circle"></div><span>Necesito tiempo</span></div>
+            <div class="yn-opt"><div class="yn-circle"></div><span>Tengo preguntas</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="commitment-box">
+        <p>"Hoy decido ser parte de la familia de Mundo de Fe Santo Domingo. Quiero conocer a Dios, crecer en comunidad y hacer la diferencia."</p>
+        <div class="sign-row">
+          <div class="sign-field"><label>Firma</label><div class="line"></div></div>
+          <div class="sign-field"><label>Fecha</label><div class="line"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:var(--cream);border-radius:8px;padding:14px 20px;border:1px solid var(--gray4);">
+      <p style="font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Notas del líder — no compartir con la persona</p>
+      <span style="display:block;border-bottom:1px solid var(--gray4);height:22px;margin-bottom:6px;"></span>
+      <span style="display:block;border-bottom:1px solid var(--gray4);height:22px;"></span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     PAGE 5 — EVALUACIONES PASO 2, 3, 4
+     ═══════════════════════════════ -->
+<div class="page">
+  <div class="doc-page">
+    <div class="page-header">
+      <div class="page-header-logo">
+        <img src="images/logo.png" alt="" onerror="this.style.display='none'" />
+        <span>MUNDO DE FE <em>SANTO DOMINGO</em></span>
+      </div>
+      <span class="page-header-tag">Evaluaciones · 03</span>
+    </div>
+
+    <span class="eyebrow">Al finalizar cada Paso</span>
+    <h2 class="section-title">Evaluaciones <em>Pasos 2, 3 y 4</em></h2>
+
+    <!-- Paso 2 -->
+    <div class="eval-header" style="background:linear-gradient(135deg,#2a0a3a,#4a1a5e);">
+      <h3>Paso 2 · Encuentra Libertad</h3>
+      <p>Evaluación personal — Mundo de Fe Santo Domingo</p>
+    </div>
+    <div class="eval-body">
+      <div class="eval-info-row">
+        <div class="eval-field"><label>Nombre</label><div class="line"></div></div>
+        <div class="eval-field"><label>Fecha</label><div class="line"></div></div>
+        <div class="eval-field"><label>¿Desea bautizarse?</label>
+          <div class="yes-no-row" style="margin-top:4px;"><div class="yn-opt"><div class="yn-circle"></div><span>Sí</span></div><div class="yn-opt"><div class="yn-circle"></div><span>No</span></div></div>
+        </div>
+      </div>
+      <div class="questions">
+        <div class="question">
+          <p class="q-text"><span class="q-num">1.</span>¿Hay algún área de tu vida donde sientes que necesitas libertad o sanidad?</p>
+          <span class="answer-line"></span><span class="answer-line"></span>
+        </div>
+        <div class="question">
+          <p class="q-text"><span class="q-num">2.</span>¿Qué hábito espiritual quieres desarrollar a partir de hoy? (oración, Biblia, ayuno)</p>
+          <span class="answer-line"></span>
+        </div>
+        <div class="question">
+          <p class="q-text"><span class="q-num">3.</span>¿Necesitas hablar con el pastor de algo personal en privado?</p>
+          <div class="yes-no-row"><div class="yn-opt"><div class="yn-circle"></div><span>Sí — pedir cita</span></div><div class="yn-opt"><div class="yn-circle"></div><span>No por ahora</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paso 3 -->
+    <div class="eval-header" style="background:linear-gradient(135deg,#0a2040,#1a3a6e);">
+      <h3>Paso 3 · Crece en Comunidad</h3>
+      <p>Evaluación de dones y conexión a grupo — Mundo de Fe Santo Domingo</p>
+    </div>
+    <div class="eval-body">
+      <div class="eval-info-row">
+        <div class="eval-field"><label>Nombre</label><div class="line"></div></div>
+        <div class="eval-field"><label>Fecha</label><div class="line"></div></div>
+        <div class="eval-field"><label>Grupo asignado hoy</label><div class="line"></div></div>
+      </div>
+      <div class="questions">
+        <div class="question">
+          <p class="q-text"><span class="q-num">1.</span>¿Cuáles son tus 3 dones espirituales principales? (a completar durante la sesión)</p>
+          <span class="answer-line"></span>
+        </div>
+        <div class="question">
+          <p class="q-text"><span class="q-num">2.</span>¿Qué te apasiona? ¿Qué te rompe el corazón cuando lo ves en la sociedad?</p>
+          <span class="answer-line"></span><span class="answer-line"></span>
+        </div>
+        <div class="question">
+          <p class="q-text"><span class="q-num">3.</span>¿Tienes alguna habilidad especial (música, tecnología, enseñanza, etc.)?</p>
+          <span class="answer-line"></span>
+        </div>
+        <div class="question">
+          <p class="q-text"><span class="q-num">4.</span>¿Qué día y hora está disponible para tu Grupo de Vida?</p>
+          <span class="answer-line"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paso 4 -->
+    <div class="eval-header" style="background:linear-gradient(135deg,#062a1a,#0a4a2a);">
+      <h3>Paso 4 · Haz la Diferencia</h3>
+      <p>Evaluación de llamado e inscripción al equipo — Mundo de Fe Santo Domingo</p>
+    </div>
+    <div class="eval-body">
+      <div class="eval-info-row">
+        <div class="eval-field"><label>Nombre</label><div class="line"></div></div>
+        <div class="eval-field"><label>Fecha</label><div class="line"></div></div>
+        <div class="eval-field"><label>Ministerio elegido</label><div class="line"></div></div>
+      </div>
+      <div class="questions">
+        <div class="question">
+          <p class="q-text"><span class="q-num">1.</span>¿En qué ministerio sientes que Dios te está llamando a servir?</p>
+          <span class="answer-line"></span>
+        </div>
+        <div class="question">
+          <p class="q-text"><span class="q-num">2.</span>¿Hay alguien en tu vida a quien quieras discipular o invitar a Mundo de Fe?</p>
+          <span class="answer-line"></span>
+        </div>
+        <div class="question">
+          <p class="q-text"><span class="q-num">3.</span>¿Cuál es tu visión personal para los próximos 12 meses en tu camino de fe?</p>
+          <span class="answer-line"></span><span class="answer-line"></span>
+        </div>
+      </div>
+      <div class="commitment-box">
+        <p>"He completado los 4 Pasos de Fe de Mundo de Fe Santo Domingo. Me comprometo a servir con mis dones, crecer en comunidad y hacer la diferencia en Santo Domingo y el mundo."</p>
+        <div class="sign-row">
+          <div class="sign-field"><label>Firma</label><div class="line"></div></div>
+          <div class="sign-field"><label>Fecha de graduación</label><div class="line"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
