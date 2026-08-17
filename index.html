@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mundo de Fe Santo Domingo — Más que una Iglesia, somos Familia</title>
   <meta name="description" content="Iglesia cristiana evangélica en Santo Domingo, República Dominicana. Pastores Otoniel Rincón y Jhanna Báez. Domingos 10AM." />
-  <meta name="theme-color" content="#0f1b35" />
+  <meta name="theme-color" content="#072A18" />
   <link rel="canonical" href="https://mundodefesantodomingo.org/" />
   <link rel="icon" type="image/png" href="images/logo.png" />
   <!-- Open Graph / Facebook -->
@@ -65,6 +65,7 @@
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#predicas">Ver</a></li>
         <li><a href="#eventos">Eventos</a></li>
+        <li><a href="/formados">Formados</a></li>
         <li><a href="#dar">Dar</a></li>
         <li><a href="#contacto" class="nav-cta"><i class="fa-solid fa-calendar-check"></i> Planifica tu visita</a></li>
       </ul>
@@ -80,8 +81,6 @@
       <div class="hero-grain"></div>
     </div>
     <div class="hero-content">
-      <img src="images/logo.png" alt="Mundo de Fe Santo Domingo" class="hero-logo"
-        onerror="this.style.display='none'" />
       <div class="hero-series-tag" id="heroSeriesTag"></div>
       <div class="hero-eyebrow">
         <span class="eyebrow-line"></span>
@@ -280,11 +279,15 @@
           <h2 class="heading-display">Un lugar<br/><em>para todos</em></h2>
         </div>
         <div class="ministries-serve-cta">
+          <h3 id="serveHeadline"></h3>
           <p class="body-text" id="serveSub"></p>
           <a href="#contacto" class="btn btn-dark-fill" id="serveCtaBtn"></a>
         </div>
       </div>
       <div class="ministries-grid" id="ministriesGrid">
+        <!-- Populated from content.js -->
+      </div>
+      <div class="serve-areas" id="serveAreas">
         <!-- Populated from content.js -->
       </div>
     </div>
@@ -392,7 +395,7 @@
     </a>
   </div>
 
-  <script src="content.js"></script>
+  <script src="content.js?v=2"></script>
   <script>
   // ══════════════════════════════════════════════
   //  CONTENT INJECTOR — reads SITE from content.js
@@ -569,14 +572,19 @@
 
     // ── Sermons ──────────────────────────────────
     setText('seriesName', S.current_series.name);
-    const sermGrid = $('sermonsGrid');
-    if (sermGrid && S.sermons.length) {
-      const feat = S.sermons.find(s => s.featured) || S.sermons[0];
-      const rest = S.sermons.filter(s => s !== feat);
-      const colors = ['#0f1b35,#1a0a3a', '#1a1040,#0a1a30', '#301040,#0f1030', '#102040,#0a2010'];
+    const sermColors = ['#072A18,#14492C', '#051d12,#0E3A22', '#0E3A22,#051d12', '#072A18,#051d12'];
+
+    function renderSermons(list) {
+      const sermGrid = $('sermonsGrid');
+      if (!sermGrid || !list.length) return;
+      const feat = list.find(s => s.featured) || list[0];
+      const rest = list.filter(s => s !== feat);
+      const thumbStyle = (s, i) => s.thumbnail
+        ? `background-image:url('${s.thumbnail}');background-size:cover;background-position:center`
+        : `background:linear-gradient(135deg,${sermColors[i] || sermColors[0]})`;
       sermGrid.innerHTML = `
         <div class="sermon-card sermon-card--feature">
-          <div class="sermon-thumb" style="background:linear-gradient(135deg,${colors[0]})" onclick="window.open('${feat.url}','_blank')">
+          <div class="sermon-thumb" style="${thumbStyle(feat, 0)}" onclick="window.open('${feat.url}','_blank')">
             <div class="sermon-overlay">
               <div class="sermon-play"><i class="fa-solid fa-play"></i></div>
             </div>
@@ -585,19 +593,19 @@
           <div class="sermon-info">
             <p class="sermon-date"><i class="fa-regular fa-calendar"></i> ${feat.date}</p>
             <h3>${feat.title}</h3>
-            <p class="sermon-speaker"><i class="fa-solid fa-microphone"></i> ${feat.speaker}</p>
+            ${feat.speaker ? `<p class="sermon-speaker"><i class="fa-solid fa-microphone"></i> ${feat.speaker}</p>` : ''}
           </div>
         </div>
         <div class="sermons-list">
           ${rest.map((s, i) => `
             <div class="sermon-item" onclick="window.open('${s.url}','_blank')" style="cursor:pointer">
-              <div class="sermon-item-thumb" style="background:linear-gradient(135deg,${colors[i+1]||colors[0]})">
+              <div class="sermon-item-thumb" style="${thumbStyle(s, i + 1)}">
                 <div class="sermon-play-sm"><i class="fa-solid fa-play"></i></div>
               </div>
               <div class="sermon-item-info">
                 <p class="sermon-date"><i class="fa-regular fa-calendar"></i> ${s.date}</p>
                 <h4>${s.title}</h4>
-                <p class="sermon-speaker"><i class="fa-solid fa-microphone"></i> ${s.speaker}</p>
+                ${s.speaker ? `<p class="sermon-speaker"><i class="fa-solid fa-microphone"></i> ${s.speaker}</p>` : ''}
               </div>
             </div>`).join('')}
           <a href="${S.contact.videos_url}" target="_blank" rel="noopener" class="btn btn-ghost-light">
@@ -605,6 +613,23 @@
           </a>
         </div>`;
     }
+
+    // Respaldo manual inmediato (content.js) — se reemplaza si /api/sermons trae datos reales.
+    renderSermons(S.sermons);
+
+    // Sincronización real con YouTube (progresiva: no bloquea el render inicial)
+    fetch('/api/sermons').then(r => r.ok ? r.json() : { videos: [] }).then(data => {
+      if (!data.videos || !data.videos.length) return;
+      const fmt = new Intl.DateTimeFormat('es-DO', { day: 'numeric', month: 'short' });
+      const synced = data.videos.map((v, i) => ({
+        title: v.title,
+        date: fmt.format(new Date(v.publishedAt)),
+        url: v.url,
+        thumbnail: v.thumbnail,
+        featured: i === 0,
+      }));
+      renderSermons(synced);
+    }).catch(() => {});
 
     // ── Events ───────────────────────────────────
     const evGrid = $('eventsGrid');

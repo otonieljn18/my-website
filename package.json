@@ -1,0 +1,7 @@
+{
+  "name": "mundodefe-santodomingo",
+  "private": true,
+  "engines": {
+    "node": "20.x"
+  }
+}

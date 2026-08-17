@@ -1,0 +1,64 @@
+/* FORMADOS — tokens de diseño. Valores extraídos de piezas oficiales de Mundo de Fe. */
+
+:root {
+  /* ── Color: verdes institucionales ── */
+  --verde:        #004E26;
+  --verde-sig:    #32A15A;
+  --verde-hoja:   #4FAE68;
+  --verde-medio:  #63B17D;
+  --verde-suave:  #96CE83;
+
+  /* ── Color: superficie oscura (derivados del ancla) ── */
+  --carbon:       #072A18;
+  --carbon-2:     #0E3A22;
+
+  /* ── Color: neutrales ── */
+  --crema:        #F4F7E4;
+  --niebla:       #E2F1DC;
+  --ink:          #1B2E22;
+  --gray:         #8FA394;
+  --line:         #D8DFC8;
+  --blanco:       #FFFFFF;
+  --err:          #9A3B2E;
+
+  /* ── Color: acento cálido, escaso ── */
+  --oro:          #B08A3E;
+  --oro-claro:    #C9A45C;
+  --oro-oscuro:   #8A6428; /* version accesible del oro para texto sobre fondos claros (AA) */
+
+  /* ── Tipografía ── */
+  --display: "Fraunces", Georgia, serif;
+  --body: "Karla", "Calibri", system-ui, sans-serif;
+
+  --type-display:   clamp(3.5rem, 3rem + 4.5vw, 8rem);
+  --type-pregunta-full: clamp(2.125rem, 1.6rem + 3.9vw, 4rem);
+  --type-pregunta-hero: clamp(1.625rem, 1.3rem + 2.4vw, 2.5rem);
+  --type-h2:        clamp(1.75rem, 1.5rem + 1.9vw, 2.75rem);
+  --type-titulo-semana: clamp(1.625rem, 1.3rem + 2.4vw, 2.5rem);
+  --type-h3:        clamp(1.25rem, 1.1rem + 1vw, 1.75rem);
+  --type-numero:    clamp(0.9375rem, 0.85rem + 0.6vw, 1.25rem);
+  --type-body:      1rem;
+  --type-lede:      1.0625rem;
+  --type-eyebrow:   0.6875rem;
+  --type-foot:      0.8125rem;
+
+  /* ── Espaciado ── */
+  --space-xs:  8px;
+  --space-sm:  16px;
+  --space-md:  24px;
+  --space-lg:  48px;
+  --space-xl:  80px;
+  --space-2xl: 128px;
+
+  /* ── Estructura ── */
+  --sheet: 720px;
+  --measure: 1120px;
+  --radius: 2px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --type-body: 1.0625rem;
+  }
+}
