@@ -216,7 +216,11 @@
         if (!a.checked) ok = false;
         if (!grupoOk("fotos", "e-fotos")) ok = false;
       }
-      if (!ok) return;
+      if (!ok) {
+        var badField = document.getElementById("kidsConsent").querySelector('[aria-invalid="true"], .f-err.on');
+        if (badField) badField.scrollIntoView({ block: "center" });
+        return;
+      }
 
       var payload = {
         responsable: {
