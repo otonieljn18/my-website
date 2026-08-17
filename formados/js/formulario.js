@@ -58,8 +58,6 @@
         if (esMenor) ok = marca(rt, null, rt.value.trim().length > 2) && ok;
       });
     }
-    if (n === 2) ok = grupoOk("facilitar", "e-facilitar") && ok;
-
     if (!ok) {
       var bad = panes[n].querySelector('[aria-invalid="true"], .f-err.on');
       if (bad) bad.scrollIntoView({ block: "center" });
@@ -229,7 +227,6 @@
           primeraVez: document.querySelector('input[name=primera]:checked').value
         },
         personas: l,
-        interesFacilitar: document.querySelector('input[name=facilitar]:checked').value,
         nota: document.getElementById("nota").value.trim(),
         autorizaTutor: hayMenor ? document.getElementById("autoriza").checked : null,
         autorizaFotos: hayMenor ? ((document.querySelector('input[name=fotos]:checked') || {}).value || null) : null,

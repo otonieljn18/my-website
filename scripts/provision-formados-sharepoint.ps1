@@ -74,7 +74,6 @@ $Columns = @(
     @{ name = "ResponsableCorreo";   text = @{} }
     @{ name = "Sector";              text = @{} }
     @{ name = "PrimeraVez";          text = @{} }
-    @{ name = "InteresFacilitar";    text = @{} }
     @{ name = "Nota";                text = @{ allowMultipleLines = $true } }
     @{ name = "AutorizaTutor";       boolean = @{} }
     @{ name = "AutorizaFotos";       text = @{} }

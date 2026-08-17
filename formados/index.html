@@ -186,7 +186,7 @@
       <div class="f-rail" id="rail" role="tablist" aria-label="Pasos de inscripción">
         <button type="button" data-go="0" aria-current="step">Tú</button>
         <button type="button" data-go="1">Tu familia</button>
-        <button type="button" data-go="2">Servir</button>
+        <button type="button" data-go="2">Notas</button>
         <button type="button" data-go="3">Confirmar</button>
       </div>
 
@@ -263,23 +263,13 @@
         </div>
       </section>
 
-      <!-- Paso 3: Servir -->
+      <!-- Paso 3: Notas -->
       <section class="f-pane" data-pane="2">
-        <h2>¿Te gustaría facilitar un grupo?</h2>
-        <p class="f-help">No es obligatorio. Si te interesa, te contactamos para conversarlo.</p>
+        <h2>¿Algo que debamos saber?</h2>
+        <p class="f-help">Opcional. Preguntas, necesidades, lo que sea.</p>
 
         <div class="f-field">
-          <div class="f-opts">
-            <label class="f-opt"><input type="radio" name="facilitar" value="Sí" /><span>Sí, me interesa</span></label>
-            <label class="f-opt"><input type="radio" name="facilitar" value="Quizás" /><span>Quizás, cuéntame más</span></label>
-            <label class="f-opt"><input type="radio" name="facilitar" value="No" /><span>No por ahora</span></label>
-          </div>
-          <p class="f-err" id="e-facilitar">Selecciona una opción.</p>
-        </div>
-
-        <div class="f-field">
-          <label for="nota">¿Algo que debamos saber?</label>
-          <span class="f-hint">Opcional. Preguntas, necesidades, lo que sea.</span>
+          <label for="nota">Cuéntanos aquí</label>
           <textarea id="nota"></textarea>
         </div>
 

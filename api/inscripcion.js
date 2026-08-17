@@ -31,7 +31,7 @@ module.exports = async function handler(req, res) {
   }
 
   const familiaId = crypto.randomUUID();
-  const { responsable, personas, interesFacilitar, nota, autorizaTutor, autorizaFotos } = payload;
+  const { responsable, personas, nota, autorizaTutor, autorizaFotos } = payload;
 
   try {
     const token = await getGraphToken();
@@ -51,7 +51,6 @@ module.exports = async function handler(req, res) {
         ResponsableCorreo: responsable.correo,
         Sector: responsable.sector,
         PrimeraVez: responsable.primeraVez,
-        InteresFacilitar: interesFacilitar,
         Nota: nota || "",
         AutorizaTutor: autorizaTutor,
         AutorizaFotos: autorizaFotos,
@@ -90,8 +89,6 @@ function validate(p) {
       if (persona.edad < 18 && (!persona.retira || String(persona.retira).trim().length < 3)) errors.push("persona.retira");
     }
   }
-
-  if (!["Sí", "Quizás", "No"].includes(p.interesFacilitar)) errors.push("interesFacilitar");
 
   const hayMenor = Array.isArray(p.personas) && p.personas.some((x) => x.edad < 18);
   if (hayMenor) {
@@ -156,11 +153,8 @@ async function enviarConfirmacion(token, responsable, personas) {
     message: {
       subject: "Tu inscripción a FORMADOS",
       body: {
-        contentType: "Text",
-        content:
-          `Hola ${responsable.nombre.split(" ")[0]},\n\n` +
-          `Confirmamos la inscripción de: ${nombres}.\n` +
-          `Nos vemos el jueves 27 de agosto.\n\n— Mundo de Fe Santo Domingo`
+        contentType: "HTML",
+        content: confirmacionEmailHtml(responsable, nombres)
       },
       toRecipients: [{ emailAddress: { address: responsable.correo } }]
     },
@@ -197,7 +191,7 @@ async function notificarLideres(token, personas) {
     const mensaje = {
       message: {
         subject: `Nueva inscripción en ${pista} — FORMADOS`,
-        body: { contentType: "Text", content: `Se inscribieron ${cantidad} persona(s) en la pista ${pista}.` },
+        body: { contentType: "HTML", content: liderEmailHtml(pista, cantidad) },
         toRecipients: [{ emailAddress: { address: destinatario } }]
       },
       saveToSentItems: false
@@ -208,6 +202,105 @@ async function notificarLideres(token, personas) {
       body: JSON.stringify(mensaje)
     });
   }
+}
+
+/* ── Plantillas de correo HTML ──
+   Tabla + estilos inline a propósito: es lo único que renderiza bien
+   en Outlook de escritorio. Fuentes web-safe (no las de la web pública,
+   los clientes de correo no cargan @font-face de forma confiable). ── */
+
+const BRAND = {
+  dark: "#072A18",
+  gold: "#B08A3E",
+  goldLight: "#C9A45C",
+  cream: "#F4F7E4",
+  ink: "#1B2E22",
+  gray: "#5C6B60",
+  serif: "Georgia, 'Times New Roman', Times, serif",
+  sans: "Arial, Helvetica, sans-serif"
+};
+
+function escapeHtml(str) {
+  return String(str ?? "").replace(/[&<>"']/g, (c) => (
+    { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]
+  ));
+}
+
+function emailShell({ eyebrow, innerHtml }) {
+  return `<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:${BRAND.cream};font-family:${BRAND.sans};">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${BRAND.cream};padding:32px 16px;">
+    <tr><td align="center">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:12px;overflow:hidden;">
+        <tr><td style="background:${BRAND.dark};padding:32px 40px 28px;text-align:center;">
+          <img src="https://www.mundodefesantodomingo.com/images/logo-icon.png" width="52" height="52" alt="Mundo de Fe Santo Domingo" style="display:inline-block;width:52px;height:52px;margin-bottom:14px;border:0;" />
+          <div style="font-family:${BRAND.sans};font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:${BRAND.goldLight};margin-bottom:10px;">${escapeHtml(eyebrow)}</div>
+          <div style="font-family:${BRAND.serif};font-size:32px;color:#ffffff;letter-spacing:0.02em;">FORMADOS</div>
+          <div style="width:48px;height:2px;background:${BRAND.gold};margin:14px auto 0;"></div>
+        </td></tr>
+        <tr><td style="padding:36px 40px 8px;">
+          ${innerHtml}
+        </td></tr>
+        <tr><td style="padding:24px 40px 32px;border-top:1px solid #eee;">
+          <p style="margin:0;font-family:${BRAND.sans};font-size:12px;color:${BRAND.gray};line-height:1.6;">
+            Mundo de Fe Santo Domingo — Más que una iglesia, somos familia<br/>
+            Santo Domingo, República Dominicana
+          </p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`;
+}
+
+function ctaButton(label, url) {
+  return `<table role="presentation" cellpadding="0" cellspacing="0" style="margin:8px 0 4px;">
+    <tr><td style="background:${BRAND.gold};border-radius:4px;">
+      <a href="${url}" style="display:inline-block;padding:14px 28px;font-family:${BRAND.sans};font-size:13px;font-weight:bold;letter-spacing:0.08em;text-transform:uppercase;color:#ffffff;text-decoration:none;">${escapeHtml(label)}</a>
+    </td></tr>
+  </table>`;
+}
+
+function confirmacionEmailHtml(responsable, nombres) {
+  const primerNombre = escapeHtml(String(responsable.nombre).split(" ")[0]);
+  const inner = `
+    <p style="margin:0 0 18px;font-family:${BRAND.sans};font-size:16px;color:${BRAND.ink};">Hola ${primerNombre},</p>
+    <p style="margin:0 0 24px;font-family:${BRAND.sans};font-size:15px;line-height:1.7;color:${BRAND.ink};">
+      Confirmamos la inscripción de <strong>${escapeHtml(nombres)}</strong> a FORMADOS.
+      Comenzamos el <strong>jueves 27 de agosto</strong> — nueve semanas para responder juntos
+      una sola pregunta: ¿en quién me estoy convirtiendo?
+    </p>
+    <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin:0 0 28px;">
+      <tr><td style="background:${BRAND.cream};border-left:3px solid ${BRAND.gold};border-radius:4px;padding:22px 24px;">
+        <p style="margin:0 0 12px;font-family:${BRAND.serif};font-style:italic;font-size:16px;line-height:1.6;color:${BRAND.ink};">
+          "Nos alegra mucho que te sumes a FORMADOS. Estas nueve semanas no son un programa más —
+          son un espacio para detenernos, mirar hacia adentro y dejar que Dios siga formando lo mejor
+          de ti. No caminarás solo: vamos a estar cerca, orando por cada persona que se atrevió a decir
+          que sí a esta pregunta."
+        </p>
+        <p style="margin:0;font-family:${BRAND.sans};font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:${BRAND.gold};">— Pastores Otoniel y Jhanna</p>
+      </td></tr>
+    </table>
+    <p style="margin:0 0 8px;font-family:${BRAND.sans};font-size:13px;color:${BRAND.gray};">Nos vemos pronto.</p>
+    ${ctaButton("Ver detalles de FORMADOS", "https://www.mundodefesantodomingo.com/formados")}
+  `;
+  return emailShell({ eyebrow: "Inscripción confirmada", innerHtml: inner });
+}
+
+function liderEmailHtml(pista, cantidad) {
+  const listUrl = process.env.FORMADOS_SP_LIST_URL;
+  const inner = `
+    <p style="margin:0 0 18px;font-family:${BRAND.sans};font-size:16px;color:${BRAND.ink};">Hola,</p>
+    <p style="margin:0 0 24px;font-family:${BRAND.sans};font-size:15px;line-height:1.7;color:${BRAND.ink};">
+      Se ${cantidad === 1 ? "inscribió 1 persona nueva" : `inscribieron ${cantidad} personas nuevas`}
+      en la pista <strong>${escapeHtml(pista)}</strong> de FORMADOS.
+    </p>
+    ${listUrl ? ctaButton("Ver en SharePoint", listUrl) : ""}
+  `;
+  return emailShell({ eyebrow: "Nueva inscripción", innerHtml: inner });
 }
 
 /* ── Logging sin datos sensibles ── */
