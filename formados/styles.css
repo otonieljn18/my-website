@@ -390,6 +390,7 @@ section[id] { scroll-margin-top: 88px; }
 }
 .f-opt input:checked + span { border-color: var(--verde); background: var(--niebla); box-shadow: inset 3px 0 0 var(--verde); }
 .f-opt input:focus-visible + span { outline: 2px solid var(--oro); outline-offset: 2px; }
+.f-opt.invalid span { border-color: var(--err); box-shadow: inset 3px 0 0 var(--err); }
 
 .f-person {
   border: 1px solid var(--line); background: #fff; border-radius: var(--radius);

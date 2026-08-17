@@ -32,6 +32,10 @@
     var ok = !!document.querySelector('input[name=' + name + ']:checked');
     var e = document.getElementById(errId);
     if (e) e.classList.toggle("on", !ok);
+    [].slice.call(document.querySelectorAll('input[name=' + name + ']')).forEach(function (input) {
+      var opt = input.closest(".f-opt");
+      if (opt) opt.classList.toggle("invalid", !ok);
+    });
     return ok;
   }
 
@@ -213,11 +217,13 @@
         var a = document.getElementById("autoriza");
         var eAutoriza = document.getElementById("e-autoriza");
         if (eAutoriza) eAutoriza.classList.toggle("on", !a.checked);
+        var aOpt = a.closest(".f-opt");
+        if (aOpt) aOpt.classList.toggle("invalid", !a.checked);
         if (!a.checked) ok = false;
         if (!grupoOk("fotos", "e-fotos")) ok = false;
       }
       if (!ok) {
-        var badField = document.getElementById("kidsConsent").querySelector('[aria-invalid="true"], .f-err.on');
+        var badField = document.getElementById("kidsConsent").querySelector('.invalid, .f-err.on');
         if (badField) badField.scrollIntoView({ block: "center" });
         return;
       }
