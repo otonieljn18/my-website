@@ -3,5 +3,8 @@
   "private": true,
   "engines": {
     "node": "20.x"
+  },
+  "scripts": {
+    "provision:formados": "node scripts/provision-formados-sharepoint.js"
   }
 }
