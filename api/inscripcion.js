@@ -235,7 +235,7 @@ function emailShell({ eyebrow, innerHtml }) {
     <tr><td align="center">
       <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:12px;overflow:hidden;">
         <tr><td style="background:${BRAND.dark};padding:32px 40px 28px;text-align:center;">
-          <img src="https://www.mundodefesantodomingo.com/images/logo-icon.png" width="52" height="52" alt="Mundo de Fe Santo Domingo" style="display:inline-block;width:52px;height:52px;margin-bottom:14px;border:0;" />
+          <img src="https://www.mundodefesantodomingo.com/images/logo-icon-white.png" width="52" height="52" alt="Mundo de Fe Santo Domingo" style="display:inline-block;width:52px;height:52px;margin-bottom:14px;border:0;" />
           <div style="font-family:${BRAND.sans};font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:${BRAND.goldLight};margin-bottom:10px;">${escapeHtml(eyebrow)}</div>
           <div style="font-family:${BRAND.serif};font-size:32px;color:#ffffff;letter-spacing:0.02em;">FORMADOS</div>
           <div style="width:48px;height:2px;background:${BRAND.gold};margin:14px auto 0;"></div>
