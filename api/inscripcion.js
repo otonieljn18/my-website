@@ -270,7 +270,7 @@ function confirmacionEmailHtml(responsable, nombres) {
     <p style="margin:0 0 18px;font-family:${BRAND.sans};font-size:16px;color:${BRAND.ink};">Hola ${primerNombre},</p>
     <p style="margin:0 0 24px;font-family:${BRAND.sans};font-size:15px;line-height:1.7;color:${BRAND.ink};">
       Confirmamos la inscripción de <strong>${escapeHtml(nombres)}</strong> a FORMADOS.
-      Comenzamos el <strong>jueves 27 de agosto</strong> — nueve semanas para responder juntos
+      Comenzamos el <strong>jueves 3 de septiembre</strong> — nueve semanas para responder juntos
       una sola pregunta: ¿en quién me estoy convirtiendo?
     </p>
     <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin:0 0 28px;">

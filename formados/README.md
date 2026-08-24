@@ -43,7 +43,7 @@ el formulario sigue siendo usable para probar la UI, pero no persiste nada.
   el ancla de 2 Corintios 3:18 — revísalos antes de publicar, no son contenido oficial del ministerio.
 - **Los 6 momentos de "cómo es una reunión"** también son borrador.
 - **Lista real de sectores** en el selector del formulario (hoy tiene 4 de ejemplo + "Otro").
-- **Hora y lugar** de las reuniones (hoy solo se menciona el jueves 27).
+- **Hora y lugar** de las reuniones (hoy solo se menciona el jueves 3 de septiembre).
 - **Respuesta de "¿Cuesta algo?"** en el FAQ — asumí que no cuesta nada, confírmalo.
 - **Número de WhatsApp real** para el enlace de respaldo cuando falla el envío
   (`formados/js/formulario.js`, constante `WHATSAPP_FALLBACK`).

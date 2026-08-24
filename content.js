@@ -28,7 +28,7 @@ window.SITE = {
   announcement: {
     show: true,
     emoji: "🌱",
-    text: "FORMADOS — 9 semanas para responder una pregunta. Comenzamos el jueves 27 de agosto",
+    text: "FORMADOS — 9 semanas para responder una pregunta. Comenzamos el jueves 3 de septiembre",
     cta_text: "Conoce e inscríbete",
     cta_url: "/formados",
   },
