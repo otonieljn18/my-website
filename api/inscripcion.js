@@ -210,14 +210,17 @@ async function notificarLideres(token, personas) {
    los clientes de correo no cargan @font-face de forma confiable). ── */
 
 const BRAND = {
-  dark: "#072A18",
+  dark: "#0B331E",
   gold: "#B08A3E",
   goldLight: "#C9A45C",
   cream: "#F4F7E4",
   ink: "#1B2E22",
   gray: "#5C6B60",
-  serif: "Georgia, 'Times New Roman', Times, serif",
-  sans: "Arial, Helvetica, sans-serif"
+  // Los correos no cargan las fuentes autoalojadas del sitio (OL Round
+  // Gothic / Creato Display) de forma confiable en la mayoría de clientes
+  // de correo — se usan equivalentes "web-safe" con un carácter similar.
+  serif: "Georgia, 'Times New Roman', Times, serif", // acento itálico (~Source Serif 4)
+  sans: "Verdana, Geneva, sans-serif" // cuerpo/UI (~Creato Display)
 };
 
 function escapeHtml(str) {
@@ -237,7 +240,7 @@ function emailShell({ eyebrow, innerHtml }) {
         <tr><td style="background:${BRAND.dark};padding:32px 40px 28px;text-align:center;">
           <img src="https://www.mundodefesantodomingo.com/images/logo-icon-white.png" width="52" height="52" alt="Mundo de Fe Santo Domingo" style="display:inline-block;width:52px;height:52px;margin-bottom:14px;border:0;" />
           <div style="font-family:${BRAND.sans};font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:${BRAND.goldLight};margin-bottom:10px;">${escapeHtml(eyebrow)}</div>
-          <div style="font-family:${BRAND.serif};font-size:32px;color:#ffffff;letter-spacing:0.02em;">FORMADOS</div>
+          <div style="font-family:${BRAND.sans};font-weight:bold;font-size:30px;color:#ffffff;letter-spacing:0.04em;">FORMADOS</div>
           <div style="width:48px;height:2px;background:${BRAND.gold};margin:14px auto 0;"></div>
         </td></tr>
         <tr><td style="padding:36px 40px 8px;">
