@@ -8,9 +8,9 @@
   --verde-medio:  #63B17D;
   --verde-suave:  #96CE83;
 
-  /* ── Color: superficie oscura (derivados del ancla) ── */
-  --carbon:       #072A18;
-  --carbon-2:     #0E3A22;
+  /* ── Color: superficie oscura (Manual de Marca 2026 — "Bush") ── */
+  --carbon:       #0B331E;
+  --carbon-2:     #0F4428;
 
   /* ── Color: neutrales ── */
   --crema:        #F4F7E4;
@@ -24,11 +24,12 @@
   /* ── Color: acento cálido, escaso ── */
   --oro:          #B08A3E;
   --oro-claro:    #C9A45C;
-  --oro-oscuro:   #8A6428; /* version accesible del oro para texto sobre fondos claros (AA) */
+  --oro-oscuro:   #96702F; /* = Bronce Medio del Manual de Marca 2026 */
 
-  /* ── Tipografía ── */
-  --display: "Fraunces", Georgia, serif;
-  --body: "Karla", "Calibri", system-ui, sans-serif;
+  /* ── Tipografía (Manual de Marca 2026) ── */
+  --display: "OL Round Gothic", Verdana, sans-serif;
+  --display-italic: "Source Serif 4", Georgia, serif;
+  --body: "Creato Display", "Calibri", system-ui, sans-serif;
 
   --type-display:   clamp(3.5rem, 3rem + 4.5vw, 8rem);
   --type-pregunta-full: clamp(2.125rem, 1.6rem + 3.9vw, 4rem);
