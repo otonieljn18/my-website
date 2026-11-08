@@ -284,7 +284,7 @@ function confirmacionEmailHtml(responsable, nombres) {
           de ti. No caminarás solo: vamos a estar cerca, orando por cada persona que se atrevió a decir
           que sí a esta pregunta."
         </p>
-        <p style="margin:0;font-family:${BRAND.sans};font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:${BRAND.gold};">— Pastores Otoniel y Jhanna</p>
+        <p style="margin:0;font-family:${BRAND.sans};font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:${BRAND.gold};">— Pastores Otoniel y Jatna</p>
       </td></tr>
     </table>
     <p style="margin:0 0 8px;font-family:${BRAND.sans};font-size:13px;color:${BRAND.gray};">Nos vemos pronto.</p>

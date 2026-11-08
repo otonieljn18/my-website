@@ -25,8 +25,10 @@ window.SITE = {
   // ANNOUNCEMENT BAR (top of page)
   // Set show: false to hide it
   // ─────────────────────────────────────────────
+  // until: "AAAA-MM-DD" — después de esa fecha la barra se oculta sola
   announcement: {
     show: true,
+    until: "2026-09-03",
     emoji: "🌱",
     text: "FORMADOS — 9 semanas para responder una pregunta. Comenzamos el jueves 3 de septiembre",
     cta_text: "Conoce e inscríbete",
@@ -65,12 +67,12 @@ window.SITE = {
       {
         icon:  "fa-location-dot",
         title: "Dónde estamos",
-        body:  "Santo Domingo, República Dominicana. Síguenos en redes para la dirección exacta.",
+        body:  "C. Costa Rica 113, esquina, Alma Rosa I, Santo Domingo Este. Te esperamos.",
       },
       {
         icon:  "fa-clock",
         title: "Cuándo",
-        body:  "Domingos a las 10:00 AM. Las puertas abren 30 minutos antes.",
+        body:  "Domingos a las 10:30 AM y miércoles a las 7:00 PM. Las puertas abren 30 minutos antes.",
       },
       {
         icon:  "fa-shirt",
@@ -141,10 +143,10 @@ window.SITE = {
       bio:    "Hombre de fe, visión y amor profundo por la casa de Dios. El Pastor Otoniel guía a la congregación con integridad, pasión por la Palabra y un corazón de padre hacia cada miembro de la familia.",
     },
     {
-      name:   "Jhanna Báez",
+      name:   "Jatna Báez",
       role:   "Pastora",
       photo:  "images/jhanna.jpg",
-      bio:    "Mujer ungida, apasionada por la adoración y el discipulado. La Pastora Jhanna imparte vida a cada persona que toca con su ministerio, reflejando el corazón de Dios para las familias y la comunidad.",
+      bio:    "Mujer ungida, apasionada por la adoración y el discipulado. La Pastora Jatna imparte vida a cada persona que toca con su ministerio, reflejando el corazón de Dios para las familias y la comunidad.",
     },
   ],
 
@@ -192,7 +194,7 @@ window.SITE = {
     },
     {
       title:    "El poder de la oración",
-      speaker:  "Ps. Jhanna Báez",
+      speaker:  "Ps. Jatna Báez",
       date:     "Semana pasada",
       url:      "https://www.youtube.com/@mundodefesd/videos",
     },
@@ -204,19 +206,22 @@ window.SITE = {
     },
     {
       title:    "Vivir en abundancia",
-      speaker:  "Ps. Jhanna Báez",
+      speaker:  "Ps. Jatna Báez",
       date:     "Hace 3 semanas",
       url:      "https://www.youtube.com/@mundodefesd/videos",
     },
   ],
 
   // ─────────────────────────────────────────────
-  // EVENTS (upcoming — remove past events)
+  // EVENTS — pon "date" (y "end" si dura varios días) en formato AAAA-MM-DD.
+  // Los eventos pasados se ocultan solos; no hace falta borrarlos.
   // NOTE: "Jornada" y "Encuentro Familiar" todavía no tienen hora
   // confirmada — actualiza el campo "time" apenas la tengas.
   // ─────────────────────────────────────────────
   events: [
     {
+      date:       "2026-09-01",
+      end:        "2026-09-30",
       date_day:   "01",
       date_month: "SEP",
       title:      "Mes de la Biblia",
@@ -227,6 +232,7 @@ window.SITE = {
       url:        "#contacto",
     },
     {
+      date:       "2026-09-06",
       date_day:   "06",
       date_month: "SEP",
       title:      "Jornada",
@@ -237,6 +243,7 @@ window.SITE = {
       url:        "#contacto",
     },
     {
+      date:       "2026-12-06",
       date_day:   "06",
       date_month: "DIC",
       title:      "Encuentro Familiar",
@@ -263,7 +270,7 @@ window.SITE = {
       { icon: "fa-earth-americas", label: "Alcance" },
     ],
     cta_text: "Quiero servir",
-    cta_url:  "#contacto",
+    cta_url:  "https://wa.me/18498784733?text=Hola%2C%20me%20gustar%C3%ADa%20servir%20en%20Mundo%20de%20Fe%20Santo%20Domingo.",
   },
 
   // ─────────────────────────────────────────────
@@ -277,7 +284,7 @@ window.SITE = {
     cta_url:   "#",           // ← replace with your giving platform URL
     methods: [
       { icon: "fa-globe",     label: "En línea",    detail: "Próximamente disponible" },
-      { icon: "fa-mobile",    label: "WhatsApp",    detail: "Contáctanos para información" },
+      { icon: "fa-mobile",    label: "WhatsApp",    detail: "849-878-4733" },
       { icon: "fa-church",    label: "En persona",  detail: "Domingos durante el servicio" },
     ],
   },
@@ -322,10 +329,11 @@ window.SITE = {
   // CONTACT & SOCIAL
   // ─────────────────────────────────────────────
   contact: {
-    address:          "Santo Domingo, República Dominicana",
-    phone:            "",                // e.g. "+1 809 000 0000"
+    address:          "C. Costa Rica 113, esquina, Alma Rosa I, Santo Domingo Este",
+    maps_url:         "https://www.google.com/maps/search/?api=1&query=Mundo+de+Fe+Santo+Domingo+Este&query_place_id=ChIJ12DjrXmIr44RFeSfEL9_HUg",
+    phone:            "+1 849-878-4733",
     email:            "",                // e.g. "info@mundodefesd.com"
-    whatsapp_url:     "",              // e.g. "https://wa.me/18090000000"
+    whatsapp_url:     "https://wa.me/18498784733",
     facebook_url:     "https://www.facebook.com/MundodefeSD/",
     facebook_handle:  "@MundodefeSD",
     instagram_url:    "https://www.instagram.com/mundodefesd/",
@@ -335,3 +343,16 @@ window.SITE = {
   },
 
 };
+
+// ─────────────────────────────────────────────
+// LIMPIEZA AUTOMÁTICA (no editar)
+// Oculta la barra de anuncio después de "until" y los eventos
+// cuya fecha ("end" o "date") ya pasó.
+// ─────────────────────────────────────────────
+(function () {
+  var S = window.SITE;
+  var hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+  var pasado = function (f) { return f && new Date(f + "T00:00:00") < hoy; };
+  if (S.announcement && pasado(S.announcement.until)) S.announcement.show = false;
+  S.events = (S.events || []).filter(function (ev) { return !pasado(ev.end || ev.date); });
+})();

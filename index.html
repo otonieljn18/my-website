@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mundo de Fe Santo Domingo — Más que una Iglesia, somos Familia</title>
-  <meta name="description" content="Iglesia cristiana evangélica en Santo Domingo, República Dominicana. Pastores Otoniel Rincón y Jhanna Báez. Domingos 10AM." />
+  <meta name="description" content="Iglesia cristiana evangélica en Santo Domingo, República Dominicana. Pastores Otoniel Rincón y Jatna Báez. Domingos 10:30 AM y miércoles 7:00 PM en Alma Rosa I, Santo Domingo Este." />
   <meta name="theme-color" content="#072A18" />
   <link rel="canonical" href="https://www.mundodefesantodomingo.com/" />
   <link rel="icon" type="image/png" href="images/logo.png" />
@@ -13,15 +13,48 @@
   <meta property="og:url" content="https://www.mundodefesantodomingo.com/" />
   <meta property="og:locale" content="es_DO" />
   <meta property="og:title" content="Mundo de Fe Santo Domingo — Más que una Iglesia, somos Familia" />
-  <meta property="og:description" content="Iglesia cristiana evangélica en Santo Domingo, RD. Pastores Otoniel Rincón y Jhanna Báez. Únete a nosotros los Domingos a las 10AM." />
+  <meta property="og:description" content="Iglesia cristiana evangélica en Santo Domingo, RD. Pastores Otoniel Rincón y Jatna Báez. Únete a nosotros los domingos a las 10:30 AM en Alma Rosa I, Santo Domingo Este." />
   <meta property="og:image" content="https://www.mundodefesantodomingo.com/images/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mundo de Fe Santo Domingo" />
-  <meta name="twitter:description" content="Iglesia cristiana evangélica en Santo Domingo, RD. Domingos 10AM." />
+  <meta name="twitter:description" content="Iglesia cristiana evangélica en Santo Domingo, RD. Domingos 10:30 AM." />
   <meta name="twitter:image" content="https://www.mundodefesantodomingo.com/images/og-image.png" />
+  <!-- Datos para Google: iglesia, dirección, horarios -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Church",
+    "name": "Mundo de Fe Santo Domingo",
+    "alternateName": "Mundo de Fe Santo Domingo Este",
+    "url": "https://www.mundodefesantodomingo.com/",
+    "logo": "https://www.mundodefesantodomingo.com/images/logo.png",
+    "image": "https://www.mundodefesantodomingo.com/images/og-image.png",
+    "description": "Iglesia cristiana evangélica en Alma Rosa I, Santo Domingo Este. Más que una iglesia, somos familia.",
+    "telephone": "+1-849-878-4733",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "C. Costa Rica 113, esquina",
+      "addressLocality": "Santo Domingo Este",
+      "addressRegion": "Santo Domingo",
+      "postalCode": "11503",
+      "addressCountry": "DO"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 18.492032, "longitude": -69.8631962 },
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=Mundo+de+Fe+Santo+Domingo+Este&query_place_id=ChIJ12DjrXmIr44RFeSfEL9_HUg",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "10:30", "closes": "12:30" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "19:00", "closes": "21:00" }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/MundodefeSD/",
+      "https://www.instagram.com/mundodefesd/",
+      "https://www.youtube.com/@mundodefesd"
+    ]
+  }
+  </script>
   <!-- Google Analytics (G-JB07HHGL95) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JB07HHGL95"></script>
   <script>
@@ -704,12 +737,13 @@
     const contactDetails = $('contactDetails');
     if (contactDetails) {
       const rows = [
-        { icon: 'fa-location-dot', label: 'Ubicación', val: S.contact.address },
+        { icon: 'fa-location-dot', label: 'Ubicación', val: S.contact.maps_url ? `<a href="${S.contact.maps_url}" target="_blank" rel="noopener">${S.contact.address}</a>` : S.contact.address },
         { icon: 'fa-clock', label: 'Servicio principal', val: `${S.services.find(s=>s.featured)?.day || 'Domingo'} ${S.services.find(s=>s.featured)?.time || '10:00 AM'}` },
         { icon: 'fa-brands fa-facebook', label: 'Facebook', val: S.contact.facebook_handle },
         { icon: 'fa-brands fa-instagram', label: 'Instagram', val: S.contact.instagram_handle },
       ];
-      if (S.contact.phone) rows.push({ icon: 'fa-phone', label: 'Teléfono', val: S.contact.phone });
+      if (S.contact.whatsapp_url) rows.push({ icon: 'fa-brands fa-whatsapp', label: 'WhatsApp', val: `<a href="${S.contact.whatsapp_url}" target="_blank" rel="noopener">${S.contact.phone || 'Escríbenos'}</a>` });
+      else if (S.contact.phone) rows.push({ icon: 'fa-phone', label: 'Teléfono', val: S.contact.phone });
       if (S.contact.email) rows.push({ icon: 'fa-envelope', label: 'Email', val: S.contact.email });
       contactDetails.innerHTML = rows.map(r => `
         <div class="contact-row">
