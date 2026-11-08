@@ -143,10 +143,10 @@ window.SITE = {
       bio:    "Hombre de fe, visión y amor profundo por la casa de Dios. El Pastor Otoniel guía a la congregación con integridad, pasión por la Palabra y un corazón de padre hacia cada miembro de la familia.",
     },
     {
-      name:   "Jhanna Báez",
+      name:   "Jatna Báez",
       role:   "Pastora",
       photo:  "images/jhanna.jpg",
-      bio:    "Mujer ungida, apasionada por la adoración y el discipulado. La Pastora Jhanna imparte vida a cada persona que toca con su ministerio, reflejando el corazón de Dios para las familias y la comunidad.",
+      bio:    "Mujer ungida, apasionada por la adoración y el discipulado. La Pastora Jatna imparte vida a cada persona que toca con su ministerio, reflejando el corazón de Dios para las familias y la comunidad.",
     },
   ],
 
@@ -194,7 +194,7 @@ window.SITE = {
     },
     {
       title:    "El poder de la oración",
-      speaker:  "Ps. Jhanna Báez",
+      speaker:  "Ps. Jatna Báez",
       date:     "Semana pasada",
       url:      "https://www.youtube.com/@mundodefesd/videos",
     },
@@ -206,7 +206,7 @@ window.SITE = {
     },
     {
       title:    "Vivir en abundancia",
-      speaker:  "Ps. Jhanna Báez",
+      speaker:  "Ps. Jatna Báez",
       date:     "Hace 3 semanas",
       url:      "https://www.youtube.com/@mundodefesd/videos",
     },
