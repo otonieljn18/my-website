@@ -25,8 +25,10 @@ window.SITE = {
   // ANNOUNCEMENT BAR (top of page)
   // Set show: false to hide it
   // ─────────────────────────────────────────────
+  // until: "AAAA-MM-DD" — después de esa fecha la barra se oculta sola
   announcement: {
     show: true,
+    until: "2026-09-03",
     emoji: "🌱",
     text: "FORMADOS — 9 semanas para responder una pregunta. Comenzamos el jueves 3 de septiembre",
     cta_text: "Conoce e inscríbete",
@@ -211,12 +213,15 @@ window.SITE = {
   ],
 
   // ─────────────────────────────────────────────
-  // EVENTS (upcoming — remove past events)
+  // EVENTS — pon "date" (y "end" si dura varios días) en formato AAAA-MM-DD.
+  // Los eventos pasados se ocultan solos; no hace falta borrarlos.
   // NOTE: "Jornada" y "Encuentro Familiar" todavía no tienen hora
   // confirmada — actualiza el campo "time" apenas la tengas.
   // ─────────────────────────────────────────────
   events: [
     {
+      date:       "2026-09-01",
+      end:        "2026-09-30",
       date_day:   "01",
       date_month: "SEP",
       title:      "Mes de la Biblia",
@@ -227,6 +232,7 @@ window.SITE = {
       url:        "#contacto",
     },
     {
+      date:       "2026-09-06",
       date_day:   "06",
       date_month: "SEP",
       title:      "Jornada",
@@ -237,6 +243,7 @@ window.SITE = {
       url:        "#contacto",
     },
     {
+      date:       "2026-12-06",
       date_day:   "06",
       date_month: "DIC",
       title:      "Encuentro Familiar",
@@ -335,3 +342,16 @@ window.SITE = {
   },
 
 };
+
+// ─────────────────────────────────────────────
+// LIMPIEZA AUTOMÁTICA (no editar)
+// Oculta la barra de anuncio después de "until" y los eventos
+// cuya fecha ("end" o "date") ya pasó.
+// ─────────────────────────────────────────────
+(function () {
+  var S = window.SITE;
+  var hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+  var pasado = function (f) { return f && new Date(f + "T00:00:00") < hoy; };
+  if (S.announcement && pasado(S.announcement.until)) S.announcement.show = false;
+  S.events = (S.events || []).filter(function (ev) { return !pasado(ev.end || ev.date); });
+})();
