@@ -2,7 +2,7 @@
   "name": "mundodefe-santodomingo",
   "private": true,
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "scripts": {
     "provision:formados": "node scripts/provision-formados-sharepoint.js"
