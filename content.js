@@ -173,7 +173,8 @@ window.SITE = {
   // CURRENT SERMON SERIES
   // ─────────────────────────────────────────────
   current_series: {
-    // Vacío = el badge "Serie:" se oculta. Pon el nombre cuando arranque una serie nueva.
+    // RESPALDO: la serie real se lee de Planning Center (campo "Series" del
+    // último Servicio Dominical). Esto solo se usa si esa lectura falla.
     name:        "",
     description: "",
     watch_url:   "https://www.youtube.com/@mundodefesd/videos",
