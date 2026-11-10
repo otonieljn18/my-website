@@ -611,6 +611,8 @@
 
     // ── Sermons ──────────────────────────────────
     setText('seriesName', S.current_series.name);
+    const seriesWrap = document.querySelector('.series-badge-wrap');
+    if (seriesWrap && !S.current_series.name) seriesWrap.style.display = 'none';
     const sermColors = ['#072A18,#14492C', '#051d12,#0E3A22', '#0E3A22,#051d12', '#072A18,#051d12'];
 
     function renderSermons(list) {
@@ -659,7 +661,7 @@
     // Sincronización real con YouTube (progresiva: no bloquea el render inicial)
     fetch('/api/sermons').then(r => r.ok ? r.json() : { videos: [] }).then(data => {
       if (!data.videos || !data.videos.length) return;
-      const fmt = new Intl.DateTimeFormat('es-DO', { day: 'numeric', month: 'short' });
+      const fmt = new Intl.DateTimeFormat('es-DO', { day: 'numeric', month: 'short', timeZone: 'America/Santo_Domingo' });
       const synced = data.videos.map((v, i) => ({
         title: v.title,
         date: fmt.format(new Date(v.publishedAt)),

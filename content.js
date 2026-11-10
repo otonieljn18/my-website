@@ -54,7 +54,7 @@ window.SITE = {
     verse:         '"Si puedes creer, al que cree todo le es posible." — Marcos 9:23',
     cta_visit:     "Planifica tu visita",
     cta_watch:     "Ver prédicas",
-    current_series: "Serie actual: La Fe que Todo lo Puede",
+    current_series: "",   // ej. "Serie actual: Nombre" — vacío = no se muestra
   },
 
   // ─────────────────────────────────────────────
@@ -173,8 +173,9 @@ window.SITE = {
   // CURRENT SERMON SERIES
   // ─────────────────────────────────────────────
   current_series: {
-    name:        "La Fe que Todo lo Puede",
-    description: "Una serie poderosa sobre cómo la fe genuina mueve lo imposible y transforma cada área de tu vida.",
+    // Vacío = el badge "Serie:" se oculta. Pon el nombre cuando arranque una serie nueva.
+    name:        "",
+    description: "",
     watch_url:   "https://www.youtube.com/@mundodefesd/videos",
   },
 
