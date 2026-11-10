@@ -265,7 +265,7 @@
     <div class="sermons-bg"></div>
     <div class="container">
       <div class="section-header section-header--light">
-        <p class="label label--gold">Watch</p>
+        <p class="label label--gold">Ver</p>
         <h2 class="heading-display heading-display--light">Prédicas<br/><em>recientes</em></h2>
         <div class="series-badge-wrap">
           <span class="series-badge"><i class="fa-solid fa-film"></i> Serie: <em id="seriesName"></em></span>
@@ -634,6 +634,8 @@
       if (!sermGrid || !list.length) return;
       const feat = list.find(s => s.featured) || list[0];
       const rest = list.filter(s => s !== feat);
+      // "Título | Pasaje o serie" → título grande + línea secundaria más legible
+      const parts = t => { const [main, ...sub] = String(t || '').split('|'); return { main: main.trim(), sub: sub.join('|').trim() }; };
       const thumbStyle = (s, i) => s.thumbnail
         ? `background-image:url('${s.thumbnail}');background-size:cover;background-position:center`
         : `background:linear-gradient(135deg,${sermColors[i] || sermColors[0]})`;
@@ -647,7 +649,8 @@
           </div>
           <div class="sermon-info">
             <p class="sermon-date"><i class="fa-regular fa-calendar"></i> ${feat.date}</p>
-            <h3>${feat.title}</h3>
+            <h3>${parts(feat.title).main}</h3>
+            ${parts(feat.title).sub ? `<p class="sermon-sub">${parts(feat.title).sub}</p>` : ''}
             ${feat.speaker ? `<p class="sermon-speaker"><i class="fa-solid fa-microphone"></i> ${feat.speaker}</p>` : ''}
           </div>
         </div>
@@ -659,7 +662,8 @@
               </div>
               <div class="sermon-item-info">
                 <p class="sermon-date"><i class="fa-regular fa-calendar"></i> ${s.date}</p>
-                <h4>${s.title}</h4>
+                <h4>${parts(s.title).main}</h4>
+                ${parts(s.title).sub ? `<p class="sermon-sub">${parts(s.title).sub}</p>` : ''}
                 ${s.speaker ? `<p class="sermon-speaker"><i class="fa-solid fa-microphone"></i> ${s.speaker}</p>` : ''}
               </div>
             </div>`).join('')}
