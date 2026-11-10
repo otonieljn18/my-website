@@ -272,7 +272,7 @@ window.SITE = {
       { icon: "fa-earth-americas", label: "Alcance" },
     ],
     cta_text: "Quiero servir",
-    cta_url:  "https://wa.me/18498784733?text=Hola%2C%20me%20gustar%C3%ADa%20servir%20en%20Mundo%20de%20Fe%20Santo%20Domingo.",
+    cta_url:  "https://wa.me/15557829864?text=Hola%2C%20me%20gustar%C3%ADa%20servir%20en%20Mundo%20de%20Fe%20Santo%20Domingo.",
   },
 
   // ─────────────────────────────────────────────
@@ -286,7 +286,7 @@ window.SITE = {
     cta_url:   "#",           // ← replace with your giving platform URL
     methods: [
       { icon: "fa-globe",     label: "En línea",    detail: "Próximamente disponible" },
-      { icon: "fa-mobile",    label: "WhatsApp",    detail: "849-878-4733" },
+      { icon: "fa-mobile",    label: "WhatsApp",    detail: "+1 555-782-9864" },
       { icon: "fa-church",    label: "En persona",  detail: "Domingos durante el servicio" },
     ],
   },
@@ -333,9 +333,9 @@ window.SITE = {
   contact: {
     address:          "C. Costa Rica 113, esquina, Alma Rosa I, Santo Domingo Este",
     maps_url:         "https://www.google.com/maps/search/?api=1&query=Mundo+de+Fe+Santo+Domingo+Este&query_place_id=ChIJ12DjrXmIr44RFeSfEL9_HUg",
-    phone:            "+1 849-878-4733",
+    phone:            "+1 555-782-9864",
     email:            "",                // e.g. "info@mundodefesd.com"
-    whatsapp_url:     "https://wa.me/18498784733",
+    whatsapp_url:     "https://wa.me/15557829864",
     facebook_url:     "https://www.facebook.com/MundodefeSD/",
     facebook_handle:  "@MundodefeSD",
     instagram_url:    "https://www.instagram.com/mundodefesd/",
