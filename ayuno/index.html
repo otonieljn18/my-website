@@ -152,6 +152,16 @@ label{font-size:14px;font-weight:700;color:var(--g);display:flex;flex-direction:
 input,select{font:16px var(--body);padding:15px 16px;border-radius:12px;border:1.5px solid var(--line);background:#fff;color:var(--ink);width:100%}
 input:invalid:not(:placeholder-shown){border-color:#C4553A}
 .err{font-size:13px;color:#B2442B;font-weight:500;min-height:0}
+.opts{border:0;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opts legend{font-weight:600;font-size:14px;margin-bottom:10px;padding:0}
+.opt{flex-direction:row!important;align-items:flex-start;gap:12px;padding:14px 16px;border:1.5px solid rgba(11,51,30,.14);border-radius:12px;cursor:pointer;background:#fff;transition:border-color .2s,background .2s}
+.opt:hover{border-color:rgba(176,138,62,.6)}
+.opt input{margin:3px 0 0;accent-color:#0B331E;width:18px!important;height:18px;flex:none;padding:0!important;border:0!important;box-shadow:none!important}
+.opt span{display:flex;flex-direction:column;gap:3px}
+.opt b{font-size:15px;color:var(--ink)}
+.opt small{font-size:13px;font-weight:400;color:rgba(11,51,30,.65);line-height:1.4}
+.opt:has(input:checked){border-color:#B08A3E;background:rgba(176,138,62,.08)}
+@media (max-width:560px){.opts{grid-template-columns:1fr}}
 .check{flex-direction:row;align-items:flex-start;gap:12px;font-weight:400;color:var(--ink);font-size:14px;line-height:1.5}
 .check input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--g)}
 form .btn{justify-content:center;background:var(--g);color:var(--iv);font-size:17px;padding:18px}
@@ -281,8 +291,8 @@ footer a{text-decoration:none;color:var(--iv)}
       <div class="type reveal">
         <div class="ico"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/></svg></div>
         <p class="lvl">Para empezar</p>
-        <h3>Ayuno de algo</h3>
-        <p>Deja una red social, la televisión o un hábito, y dale ese tiempo a Dios.</p>
+        <h3>Ayuno de pantallas</h3>
+        <p>Deja las redes sociales, la televisión o los videojuegos durante los 21 días, y dale ese tiempo a Dios.</p>
       </div>
       <div class="type reveal">
         <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
@@ -299,7 +309,7 @@ footer a{text-decoration:none;color:var(--iv)}
     </div>
     <div class="care reveal">
       <svg viewBox="0 0 24 24"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17.5v.5"/></svg>
-      <p><b>Cuida tu cuerpo.</b> Si estás embarazada o lactando, tienes diabetes u otra condición de salud o tomas medicamentos, consulta a tu médico antes de dejar de comer y elige un ayuno de algo. Los niños no ayunan comida: pueden ayunar pantallas junto a sus padres.</p>
+      <p><b>Cuida tu cuerpo.</b> Si estás embarazada o lactando, tienes diabetes u otra condición de salud o tomas medicamentos, consulta a tu médico antes de dejar de comer y elige el ayuno de pantallas. Los niños no ayunan comida: pueden ayunar pantallas junto a sus padres.</p>
     </div>
   </div>
 </section>
@@ -390,14 +400,13 @@ footer a{text-decoration:none;color:var(--iv)}
           <input id="tel" name="tel" type="tel" inputmode="tel" autocomplete="tel" required placeholder="809 000 0000" />
           <span class="err" id="e-tel"></span>
         </label>
-        <label>¿Cómo vas a ayunar?
-          <select id="tipo" name="tipo">
-            <option>Todavía no sé</option>
-            <option>Ayuno de algo</option>
-            <option>Ayuno parcial</option>
-            <option>Ayuno de Daniel</option>
-          </select>
-        </label>
+        <fieldset class="opts">
+          <legend>¿Cómo vas a ayunar?</legend>
+          <label class="opt"><input type="radio" name="tipo" value="Ayuno de pantallas" /><span><b>Ayuno de pantallas</b><small>Sin redes sociales, televisión ni videojuegos</small></span></label>
+          <label class="opt"><input type="radio" name="tipo" value="Ayuno parcial" /><span><b>Ayuno parcial</b><small>Sin comer hasta el mediodía, o una comida al día</small></span></label>
+          <label class="opt"><input type="radio" name="tipo" value="Ayuno de Daniel" /><span><b>Ayuno de Daniel</b><small>Solo frutas, vegetales, granos y agua</small></span></label>
+          <label class="opt"><input type="radio" name="tipo" value="Todavía no sé" checked /><span><b>Todavía no lo sé</b><small>Te ayudamos a escoger antes del 4 de enero</small></span></label>
+        </fieldset>
         <label>¿A qué hora quieres recibir el devocional?
           <select id="hora" name="hora">
             <option value="06:00">6:00 a. m., para empezar el día</option>
@@ -477,7 +486,7 @@ footer a{text-decoration:none;color:var(--iv)}
     if(!/^(809|829|849)\d{7}$/.test(t)){setErr('tel','Escribe un número dominicano de 10 dígitos (809, 829 u 849).');good=false}else setErr('tel');
     if(!ok){setErr('ok','Necesitamos tu permiso para escribirte por WhatsApp.');good=false}else setErr('ok');
     if(!good)return;
-    var payload={nombre:n,apellido:a,sitio:document.getElementById('sitio').value,whatsapp:'+1'+t,tipo:document.getElementById('tipo').value,hora:document.getElementById('hora').value,consentimiento:true};
+    var payload={nombre:n,apellido:a,sitio:document.getElementById('sitio').value,whatsapp:'+1'+t,tipo:(f.querySelector('input[name=tipo]:checked')||{}).value||'Todavía no sé',hora:document.getElementById('hora').value,consentimiento:true};
     var endpoint=f.dataset.endpoint;
     function finish(){document.getElementById('who').textContent=n.split(' ')[0];f.style.display='none';document.getElementById('done').style.display='block'}
     if(!endpoint){finish();return}
