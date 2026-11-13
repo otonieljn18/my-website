@@ -72,7 +72,7 @@
   <link rel="preload" href="/fonts/CreatoDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/fonts.css?v=1" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css?v=3" />
+  <link rel="stylesheet" href="style.css?v=4" />
 </head>
 <body>
 
@@ -103,6 +103,7 @@
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#predicas">Ver</a></li>
         <li><a href="#eventos">Eventos</a></li>
+        <li><a href="/ayuno">Ayuno</a></li>
         <li><a href="/formados">Formados</a></li>
         <li><a href="#dar">Dar</a></li>
         <li><a href="#contacto" class="nav-cta"><i class="fa-solid fa-calendar-check"></i> Planifica tu visita</a></li>
@@ -159,6 +160,36 @@
   <div class="strip" id="servicesStrip">
     <!-- Populated from content.js -->
   </div>
+
+  <!-- AYUNO 2027 (se oculta solo después del 24 de enero de 2027) -->
+  <section class="ayuno-band" id="ayuno" data-until="2027-01-24">
+    <div class="container ayuno-band__in">
+      <div class="ayuno-band__txt">
+        <span class="label label--gold">4 al 24 de enero · 2027</span>
+        <h2 class="heading-display">21 días de ayuno <em>y oración</em></h2>
+        <p>Comenzamos el año de rodillas, aprendiendo a orar como Jesús. Inscríbete y recibe cada día en tu WhatsApp un versículo, un paso para el día y una palabra de ánimo.</p>
+        <div class="ayuno-band__ctas">
+          <a href="/ayuno#unete" class="btn btn-gold-fill">Quiero unirme</a>
+          <a href="/ayuno" class="ayuno-band__link">Ver la ruta de los 21 días →</a>
+        </div>
+      </div>
+      <div class="ayuno-band__dias" aria-label="Faltan para comenzar">
+        <span class="ayuno-band__n" id="ayunoDias">—</span>
+        <span class="ayuno-band__l" id="ayunoDiasL">días para comenzar</span>
+      </div>
+    </div>
+  </section>
+  <script>
+  (function(){
+    var s=document.getElementById('ayuno');if(!s)return;
+    var hoy=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Santo_Domingo'}));hoy.setHours(0,0,0,0);
+    var fin=new Date(s.dataset.until+'T00:00:00'),ini=new Date('2027-01-04T00:00:00');
+    if(hoy>fin){s.remove();return}
+    var n=document.getElementById('ayunoDias'),l=document.getElementById('ayunoDiasL');
+    if(hoy<ini){var d=Math.round((ini-hoy)/864e5);n.textContent=d;l.textContent=d===1?'día para comenzar':'días para comenzar'}
+    else{n.textContent='Día '+(Math.round((hoy-ini)/864e5)+1);l.textContent='de 21 · estamos orando'}
+  })();
+  </script>
 
   <!-- SOY NUEVO / NEW HERE -->
   <section class="new-here" id="nuevo">
@@ -434,7 +465,7 @@
     </a>
   </div>
 
-  <script src="content.js?v=2"></script>
+  <script src="content.js?v=3"></script>
   <script>
   // ══════════════════════════════════════════════
   //  CONTENT INJECTOR — reads SITE from content.js

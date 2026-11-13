@@ -28,11 +28,11 @@ window.SITE = {
   // until: "AAAA-MM-DD" — después de esa fecha la barra se oculta sola
   announcement: {
     show: true,
-    until: "2026-09-03",
-    emoji: "🌱",
-    text: "FORMADOS — 9 semanas para responder una pregunta. Comenzamos el jueves 3 de septiembre",
-    cta_text: "Conoce e inscríbete",
-    cta_url: "/formados",
+    until: "2027-01-24",
+    emoji: "🙏",
+    text: "21 días de ayuno y oración · Del 4 al 24 de enero. Comenzamos el año de rodillas",
+    cta_text: "Inscríbete",
+    cta_url: "/ayuno",
   },
 
   // ─────────────────────────────────────────────
@@ -221,6 +221,18 @@ window.SITE = {
   // confirmada — actualiza el campo "time" apenas la tengas.
   // ─────────────────────────────────────────────
   events: [
+    {
+      date:       "2027-01-04",
+      end:        "2027-01-24",
+      date_day:   "04",
+      date_month: "ENE",
+      title:      "21 días de ayuno y oración",
+      time:       "4 al 24 de enero",
+      description:"Aprender a orar como Jesús. La Palabra de cada día en tu WhatsApp y oración e intercesión los miércoles a las 7:00 p. m.",
+      tag:        "Ayuno 2027",
+      tag_color:  "#0B331E",
+      url:        "/ayuno",
+    },
     {
       date:       "2026-09-01",
       end:        "2026-09-30",
